@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import PortfolioHero from '@/components/PortfolioHero';
 import ProjectsSection from '@/components/ProjectsSection';
 import AboutSection from '@/components/AboutSection';
+import ContactSection from '@/components/ContactSection';
 
 const SITE_URL = 'https://talz.net';
 
@@ -29,8 +30,13 @@ export default function Home() {
   return (
     <>
       <PortfolioHero />
-      <ProjectsSection />
+      <div style={{ background: 'var(--bg-surface)', borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)' }}>
+        <ProjectsSection />
+      </div>
       <AboutSection />
+      <div style={{ background: 'var(--bg-surface)', borderTop: '1px solid var(--border-subtle)' }}>
+        <ContactSection />
+      </div>
     </>
   );
 }

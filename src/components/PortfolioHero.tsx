@@ -1,8 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Network, ArrowDown } from 'lucide-react';
+import { Network, Mail } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
+
+const STATS = [
+  { value: '8+', label: 'Years in networking' },
+  { value: '4', label: 'Apps shipped' },
+  { value: '157', label: 'Public repos' },
+];
 
 export default function PortfolioHero() {
   return (
@@ -10,35 +16,35 @@ export default function PortfolioHero() {
       {/* Background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(124,106,255,0.4) 0%, transparent 70%)' }}
+          className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full opacity-[0.07]"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(204,92,51,1) 0%, transparent 70%)' }}
         />
         <div
-          className="absolute bottom-[-100px] left-1/4 w-[400px] h-[400px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(96,165,250,0.5) 0%, transparent 70%)' }}
-        />
-        <div
-          className="absolute top-[20%] right-[10%] w-[300px] h-[300px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(52,211,153,0.5) 0%, transparent 70%)' }}
+          className="absolute bottom-[-100px] left-1/4 w-[400px] h-[400px] rounded-full opacity-[0.05]"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(46,110,160,1) 0%, transparent 70%)' }}
         />
       </div>
 
       <div className="relative max-w-3xl mx-auto text-center">
-        {/* Badge */}
+        {/* Available badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border"
           style={{
-            borderColor: 'var(--border)',
-            background: 'var(--bg-card)',
-            color: 'var(--text-muted)',
+            borderColor: 'rgba(29,138,92,0.3)',
+            background: 'rgba(29,138,92,0.06)',
+            color: '#1d8a5c',
             fontSize: '0.8rem',
+            fontWeight: 500,
           }}
         >
-          <Network size={14} style={{ color: 'var(--accent)' }} />
-          <span>Network Engineer · Builder</span>
+          <span
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ background: '#1d8a5c', boxShadow: '0 0 0 3px rgba(29,138,92,0.2)' }}
+          />
+          Open to opportunities
         </motion.div>
 
         {/* Name */}
@@ -46,12 +52,24 @@ export default function PortfolioHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl sm:text-6xl font-bold tracking-tight mb-6"
-          style={{ lineHeight: 1.1 }}
+          className="text-5xl sm:text-7xl font-bold tracking-tight mb-5"
+          style={{ lineHeight: 1.05 }}
         >
           <span className="gradient-text">Joven</span>
           <span style={{ color: 'var(--text)' }}> Talasan</span>
         </motion.h1>
+
+        {/* Title */}
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="text-base font-medium mb-4 flex items-center justify-center gap-2"
+          style={{ color: 'var(--text-muted)' }}
+        >
+          <Network size={15} style={{ color: 'var(--accent)' }} />
+          Network Engineer who ships software
+        </motion.p>
 
         {/* Bio */}
         <motion.p
@@ -59,11 +77,10 @@ export default function PortfolioHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg mb-10 max-w-xl mx-auto"
-          style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}
+          style={{ color: 'var(--text-muted)', lineHeight: 1.75 }}
         >
-          Interested in how modern tools of technology can help people and organizations
-          do things{' '}
-          <span style={{ color: 'var(--text)' }}>better and more secure</span>.
+          I automate what network engineers do by hand and build the tools that keep
+          infrastructure <span style={{ color: 'var(--text)', fontWeight: 500 }}>visible, secure, and under control</span>.
         </motion.p>
 
         {/* CTAs */}
@@ -71,21 +88,19 @@ export default function PortfolioHero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="flex items-center justify-center gap-3 flex-wrap"
+          className="flex items-center justify-center gap-3 flex-wrap mb-14"
         >
           <a
-            href="#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
+            href="#contact"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
             style={{ background: 'var(--accent)', color: '#fff' }}
           >
-            View Projects
-            <ArrowDown size={15} />
+            <Mail size={15} />
+            Get in touch
           </a>
           <a
-            href="https://github.com/cloudcap10"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
+            href="#projects"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-colors"
             style={{
               background: 'var(--bg-card)',
               border: '1px solid var(--border)',
@@ -94,14 +109,13 @@ export default function PortfolioHero() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'; }}
           >
-            <GitHubIcon size={16} />
-            GitHub
+            View Projects
           </a>
           <a
             href="https://www.linkedin.com/in/joven-talasan/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-colors"
             style={{
               background: 'var(--bg-card)',
               border: '1px solid var(--border)',
@@ -110,21 +124,49 @@ export default function PortfolioHero() {
             onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'; }}
           >
-            <LinkedInIcon size={16} />
+            <LinkedInIcon size={15} />
             LinkedIn
+          </a>
+          <a
+            href="https://github.com/cloudcap10"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-colors"
+            style={{
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+              color: 'var(--text-muted)',
+            }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'; }}
+          >
+            <GitHubIcon size={15} />
+            GitHub
           </a>
         </motion.div>
 
-        {/* Handle */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 text-sm"
-          style={{ color: 'var(--text-muted)' }}
+        {/* Stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="grid grid-cols-3 gap-4 max-w-sm mx-auto"
         >
-          @cloudcap10 · talz.net
-        </motion.p>
+          {STATS.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-xl p-4 text-center"
+              style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
+            >
+              <div className="text-2xl font-bold mb-0.5" style={{ color: 'var(--accent)' }}>
+                {stat.value}
+              </div>
+              <div className="text-xs leading-tight" style={{ color: 'var(--text-muted)' }}>
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

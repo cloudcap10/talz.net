@@ -25,7 +25,7 @@ const PROJECTS: Project[] = [
     name: 'FileVanish',
     tagline: 'Zero-knowledge secure file sharing',
     description:
-      "AES-256-GCM client-side encryption — the server never sees your files. Built on Cloudflare's global edge with burn-after-reading, password protection, and secure inbound file requests.",
+      "Files are encrypted before they leave your browser — the server never sees the contents. AES-256-GCM, burn-after-reading, and password protection built on Cloudflare's global edge.",
     icon: Shield,
     stack: ['TypeScript', 'React', 'Cloudflare Workers', 'R2', 'D1'],
     github: 'https://github.com/cloudcap10/filevanish',
@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
     name: 'Network Automation Script',
     tagline: 'Multi-vendor network automation',
     description:
-      'Config backup and inventory automation for Cisco, Alcatel, and Aruba devices. Includes an IIS web portal for tracking and reporting. Built for network engineers who hate doing things twice.',
+      'Turns hours of manual CLI work into a scheduled job. Automatically backs up configs and tracks inventory across Cisco, Alcatel, and Aruba devices — with a web portal for reporting.',
     icon: Terminal,
     stack: ['Python 3.10+', 'Cisco IOS', 'Alcatel', 'Aruba', 'IIS'],
     github: 'https://github.com/cloudcap10/Network-Automation-Script',
@@ -53,7 +53,7 @@ const PROJECTS: Project[] = [
     name: 'PickModel',
     tagline: 'AI model comparison platform',
     description:
-      'Objective side-by-side comparison of AI language models — context windows, pricing, benchmark scores, and capabilities. Data-driven via YAML so it stays current without a rebuild.',
+      'One page instead of 20 browser tabs. Compare AI models by context window, price per token, and benchmark scores. YAML-driven so the data stays current without a full rebuild.',
     icon: Brain,
     stack: ['TypeScript', 'Next.js', 'YAML', 'Tailwind CSS'],
     github: 'https://github.com/cloudcap10/pickmodel',
@@ -67,7 +67,7 @@ const PROJECTS: Project[] = [
     name: 'SupportExpiry',
     tagline: 'Hardware & software EOL tracker',
     description:
-      'End-of-life tracking platform for network hardware and software. AI-powered research with Grok, automated email alerts via Resend, Google SSO, and a full REST API.',
+      'Get alerted before your hardware or software goes unsupported. AI researches EOL dates, sends email alerts ahead of expiry, and keeps an auditable record — so nothing slips through.',
     icon: Clock,
     stack: ['TypeScript', 'Next.js 15', 'Cloudflare Workers', 'D1', 'Grok AI'],
     github: 'https://github.com/cloudcap10/supportexpiry',
