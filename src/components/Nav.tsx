@@ -33,7 +33,7 @@ export default function Nav() {
             <circle cx="205" cy="105" r="6" fill="#c0392b"/>
             <text x="205" y="156" textAnchor="middle" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontSize="32" fontWeight="800" fill="#ffffff">10</text>
           </svg>
-          <span className="font-bold text-base tracking-tight" style={{ color: 'var(--text)' }}>CloudCap10</span>
+          <span className="hidden sm:inline font-bold text-base tracking-tight" style={{ color: 'var(--text)' }}>CloudCap10</span>
         </Link>
 
         <div className="flex items-center gap-6">
