@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion';
 import { Network, Mail } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
+import { PROJECTS } from '@/components/ProjectsSection';
 
 const STATS = [
   { value: '8+', label: 'Years in networking' },
-  { value: '4', label: 'Apps shipped' },
+  { value: String(PROJECTS.length), label: 'Apps shipped' },
   { value: '157', label: 'Public repos' },
 ];
 

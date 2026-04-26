@@ -19,7 +19,7 @@ interface Project {
   borderColor: string;
 }
 
-const PROJECTS: Project[] = [
+export const PROJECTS: Project[] = [
   {
     id: 'filevanish',
     name: 'FileVanish',
