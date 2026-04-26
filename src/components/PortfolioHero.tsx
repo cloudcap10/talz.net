@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Network, Mail } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
-import { PROJECTS } from '@/components/ProjectsSection';
+import { PROJECTS } from '@/lib/projects';
 
 const STATS = [
   { value: '8+', label: 'Years in networking' },
