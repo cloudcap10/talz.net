@@ -38,12 +38,9 @@ export default function ContactSection() {
           </div>
 
           <h2 className="text-3xl font-bold mb-3" style={{ color: 'var(--text)' }}>
-            Let&apos;s work together
+            Contact me
           </h2>
-          <p className="text-base mb-2" style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>
-            Looking for a network engineer who can also ship production software?
-          </p>
-          <p className="text-sm mb-8 flex items-center justify-center gap-1.5" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-base mb-8 flex items-center justify-center gap-1.5" style={{ color: 'var(--text-muted)' }}>
             <MapPin size={13} />
             Open to remote and on-site roles
           </p>
