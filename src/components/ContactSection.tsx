@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { LinkedInIcon } from '@/components/SocialIcons';
 
 export default function ContactSection() {
@@ -20,30 +20,9 @@ export default function ContactSection() {
             boxShadow: '0 4px 24px rgba(0,0,0,0.04)',
           }}
         >
-          {/* Available dot */}
-          <div
-            className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full text-xs font-medium"
-            style={{
-              borderColor: 'rgba(29,138,92,0.3)',
-              background: 'rgba(29,138,92,0.06)',
-              color: '#1d8a5c',
-              border: '1px solid rgba(29,138,92,0.25)',
-            }}
-          >
-            <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ background: '#1d8a5c', boxShadow: '0 0 0 3px rgba(29,138,92,0.2)' }}
-            />
-            Available for new roles &amp; projects
-          </div>
-
-          <h2 className="text-3xl font-bold mb-3" style={{ color: 'var(--text)' }}>
+          <h2 className="text-3xl font-bold mb-8" style={{ color: 'var(--text)' }}>
             Contact me
           </h2>
-          <p className="text-base mb-8 flex items-center justify-center gap-1.5" style={{ color: 'var(--text-muted)' }}>
-            <MapPin size={13} />
-            Open to remote and on-site roles
-          </p>
 
           <div className="flex items-center justify-center gap-3 flex-wrap">
             <a
