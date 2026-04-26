@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Terminal, Brain, Clock, ExternalLink } from 'lucide-react';
+import { Shield, Terminal, Brain, Clock, Route, ExternalLink } from 'lucide-react';
 import { GitHubIcon } from '@/components/SocialIcons';
 import type { ElementType } from 'react';
 
@@ -61,6 +61,20 @@ const PROJECTS: Project[] = [
     color: '#7c4dbb',
     bgColor: 'rgba(124,77,187,0.08)',
     borderColor: 'rgba(124,77,187,0.18)',
+  },
+  {
+    id: 'traefikgen',
+    name: 'TraefikGen',
+    tagline: 'Instant Docker → Traefik converter',
+    description:
+      'Paste any docker-compose.yml and get a Traefik-ready config instantly — labels injected, ports stripped, secrets replaced with safe placeholders. Push to GitHub and your VPS deploys the app automatically in under 60 seconds.',
+    icon: Route,
+    stack: ['TypeScript', 'React', 'Vite', 'GitHub Pages', 'GitHub Actions'],
+    github: 'https://github.com/cloudcap10/traefik-gen',
+    live: 'https://cloudcap10.github.io/traefik-gen/',
+    color: '#b45309',
+    bgColor: 'rgba(180,83,9,0.08)',
+    borderColor: 'rgba(180,83,9,0.18)',
   },
   {
     id: 'supportexpiry',
