@@ -26,27 +26,6 @@ export default function PortfolioHero() {
       </div>
 
       <div className="relative max-w-3xl mx-auto text-center">
-        {/* Available badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border"
-          style={{
-            borderColor: 'rgba(29,138,92,0.3)',
-            background: 'rgba(29,138,92,0.06)',
-            color: '#1d8a5c',
-            fontSize: '0.8rem',
-            fontWeight: 500,
-          }}
-        >
-          <span
-            className="w-1.5 h-1.5 rounded-full"
-            style={{ background: '#1d8a5c', boxShadow: '0 0 0 3px rgba(29,138,92,0.2)' }}
-          />
-          Open to opportunities
-        </motion.div>
-
         {/* Name */}
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
