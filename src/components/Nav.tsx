@@ -25,7 +25,7 @@ export default function Nav() {
   return (
     <nav className="sticky-header">
       <div className="max-w-5xl mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center" aria-label="Home">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Home">
           <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="110 90 180 95" aria-hidden="true">
             <ellipse cx="205" cy="167" rx="92" ry="11" fill="#c0392b"/>
             <path d="M134 167 q0 -67 71 -67 q71 0 71 67 z" fill="#e74c3c"/>
@@ -33,6 +33,7 @@ export default function Nav() {
             <circle cx="205" cy="105" r="6" fill="#c0392b"/>
             <text x="205" y="156" textAnchor="middle" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontSize="32" fontWeight="800" fill="#ffffff">10</text>
           </svg>
+          <span className="font-semibold text-sm tracking-tight gradient-text">CloudCap10</span>
         </Link>
 
         <div className="flex items-center gap-6">
