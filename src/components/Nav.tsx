@@ -25,9 +25,18 @@ export default function Nav() {
   return (
     <nav className="sticky-header">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="font-semibold text-sm tracking-tight">
+        <Link href="/" className="flex items-center gap-2.5 font-semibold text-sm tracking-tight">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 400 400" aria-hidden="true">
+            <g transform="translate(-167 -48) scale(1.8)">
+              <ellipse cx="205" cy="167" rx="92" ry="11" fill="#c0392b"/>
+              <path d="M134 167 q0 -67 71 -67 q71 0 71 67 z" fill="#e74c3c"/>
+              <path d="M276 167 q14 -2 28 5 q-14 9 -28 9 z" fill="#c0392b"/>
+              <circle cx="205" cy="105" r="6" fill="#c0392b"/>
+              <text x="205" y="156" textAnchor="middle" fontFamily="Inter, ui-sans-serif, system-ui, sans-serif" fontSize="32" fontWeight="800" fill="#ffffff">10</text>
+            </g>
+          </svg>
           <span className="gradient-text">Joven</span>
-          <span style={{ color: 'var(--text)' }}> Talasan</span>
+          <span style={{ color: 'var(--text)' }}>Talasan</span>
         </Link>
 
         <div className="flex items-center gap-6">
