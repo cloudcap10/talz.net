@@ -24,9 +24,9 @@ const SOCIAL_LINKS: SocialLink[] = [
 export default function Nav() {
   return (
     <nav className="sticky-header">
-      <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="Home">
-          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 400 400" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 400 400" aria-hidden="true">
             <g transform="translate(-167 -48) scale(1.8)">
               <ellipse cx="205" cy="167" rx="92" ry="11" fill="#c0392b"/>
               <path d="M134 167 q0 -67 71 -67 q71 0 71 67 z" fill="#e74c3c"/>
