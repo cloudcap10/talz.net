@@ -5,58 +5,58 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* ── Site design tokens ── */
-  --bg: #0d0d0f;
-  --bg-card: #13131a;
-  --bg-card-hover: #1a1a24;
-  --bg-surface: #1a1a22;
-  --border: #2e2e3e;
-  --border-subtle: #232332;
-  --text: #eeeef5;
-  --text-muted: #8a8aaa;
-  --text-faint: #55556e;
-  --accent: #7c6aff;
-  --accent-dim: #4a3faa;
-  --accent-glow: rgba(124, 106, 255, 0.15);
-  --green: #22d3a0;
-  --red: #f56565;
-  --yellow: #f6ad55;
-  --blue: #63b3ed;
+  /* ── Site design tokens — Claude/storybloq light theme ── */
+  --bg: #faf9f7;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f3ef;
+  --bg-surface: #f0ede8;
+  --border: #e3ddd6;
+  --border-subtle: #ede9e3;
+  --text: #1a1714;
+  --text-muted: #6b6560;
+  --text-faint: #a09890;
+  --accent: #cc5c33;
+  --accent-dim: #a84527;
+  --accent-glow: rgba(204, 92, 51, 0.12);
+  --green: #1d8a5c;
+  --red: #c94040;
+  --yellow: #b87a18;
+  --blue: #2e6ea0;
 
-  /* ── shadcn/ui tokens — mapped to our dark palette ── */
-  --background: #0d0d0f;
-  --foreground: #eeeef5;
-  --card: #13131a;
-  --card-foreground: #eeeef5;
-  --popover: #1a1a22;
-  --popover-foreground: #eeeef5;
-  --primary: #7c6aff;
+  /* ── shadcn/ui tokens — mapped to light palette ── */
+  --background: #faf9f7;
+  --foreground: #1a1714;
+  --card: #ffffff;
+  --card-foreground: #1a1714;
+  --popover: #ffffff;
+  --popover-foreground: #1a1714;
+  --primary: #cc5c33;
   --primary-foreground: #ffffff;
-  --secondary: #1a1a22;
-  --secondary-foreground: #eeeef5;
-  --muted: #1a1a22;
-  --muted-foreground: #8a8aaa;
-  --accent-foreground: #eeeef5;
-  --destructive: #f56565;
+  --secondary: #f0ede8;
+  --secondary-foreground: #1a1714;
+  --muted: #f0ede8;
+  --muted-foreground: #6b6560;
+  --accent-foreground: #1a1714;
+  --destructive: #c94040;
   --destructive-foreground: #ffffff;
-  --input: #1a1a22;
-  --ring: #7c6aff;
-  --chart-1: #7c6aff;
-  --chart-2: #22d3a0;
-  --chart-3: #63b3ed;
-  --chart-4: #f6ad55;
-  --chart-5: #f56565;
+  --input: #f0ede8;
+  --ring: #cc5c33;
+  --chart-1: #cc5c33;
+  --chart-2: #1d8a5c;
+  --chart-3: #2e6ea0;
+  --chart-4: #b87a18;
+  --chart-5: #c94040;
   --radius: 0.625rem;
-  --sidebar: #13131a;
-  --sidebar-foreground: #eeeef5;
-  --sidebar-primary: #7c6aff;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1a1714;
+  --sidebar-primary: #cc5c33;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1a1a22;
-  --sidebar-accent-foreground: #eeeef5;
-  --sidebar-border: #2e2e3e;
-  --sidebar-ring: #7c6aff;
+  --sidebar-accent: #f0ede8;
+  --sidebar-accent-foreground: #1a1714;
+  --sidebar-border: #e3ddd6;
+  --sidebar-ring: #cc5c33;
 }
 
 @theme inline {
@@ -176,7 +176,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 input[type='range']:hover::-webkit-slider-thumb {
-  box-shadow: 0 0 0 4px rgba(124, 106, 255, 0.25);
+  box-shadow: 0 0 0 4px rgba(204, 92, 51, 0.2);
 }
 
 input[type='range']::-moz-range-track {
@@ -207,7 +207,7 @@ input::placeholder {
 ::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
 
 /* Selection */
-::selection { background: var(--accent-dim); color: var(--text); }
+::selection { background: rgba(204, 92, 51, 0.18); color: var(--text); }
 
 /* Table styles */
 .comparison-table {
@@ -226,7 +226,7 @@ input::placeholder {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #34d399 100%);
+  background: linear-gradient(135deg, #cc5c33 0%, #e8814a 50%, #a84527 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -234,8 +234,8 @@ input::placeholder {
 
 /* Card glow on hover */
 .card-glow:hover {
-  border-color: var(--accent-dim) !important;
-  box-shadow: 0 0 0 1px rgba(124, 106, 255, 0.3), 0 8px 32px rgba(124, 106, 255, 0.1);
+  border-color: #d4b8ae !important;
+  box-shadow: 0 0 0 1px rgba(204, 92, 51, 0.15), 0 8px 32px rgba(204, 92, 51, 0.08);
 }
 
 /* Pill badge */
@@ -264,15 +264,15 @@ input::placeholder {
   top: 0;
   z-index: 40;
   backdrop-filter: blur(12px);
-  background: rgba(13, 13, 15, 0.85);
+  background: rgba(250, 249, 247, 0.88);
   border-bottom: 1px solid var(--border-subtle);
 }
 
 /* Feature tag */
 .feature-tag {
-  background: rgba(124, 106, 255, 0.12);
-  color: #a78bfa;
-  border: 1px solid rgba(124, 106, 255, 0.2);
+  background: rgba(204, 92, 51, 0.08);
+  color: #a84527;
+  border: 1px solid rgba(204, 92, 51, 0.18);
   border-radius: 6px;
   padding: 3px 8px;
   font-size: 0.75rem;
