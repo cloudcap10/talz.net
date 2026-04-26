@@ -72,9 +72,9 @@ const PROJECTS: Project[] = [
     stack: ['TypeScript', 'Next.js 15', 'Cloudflare Workers', 'D1', 'Grok AI'],
     github: 'https://github.com/cloudcap10/supportexpiry',
     live: 'https://supportexpiry.com',
-    color: '#b87a18',
-    bgColor: 'rgba(184,122,24,0.08)',
-    borderColor: 'rgba(184,122,24,0.18)',
+    color: '#8a5c10',
+    bgColor: 'rgba(138,92,16,0.08)',
+    borderColor: 'rgba(138,92,16,0.18)',
   },
 ];
 

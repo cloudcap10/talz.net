@@ -33,9 +33,9 @@ const SKILLS: SkillGroup[] = [
   {
     category: 'Infrastructure',
     icon: Cpu,
-    color: '#b87a18',
-    bgColor: 'rgba(184,122,24,0.08)',
-    borderColor: 'rgba(184,122,24,0.18)',
+    color: '#8a5c10',
+    bgColor: 'rgba(138,92,16,0.08)',
+    borderColor: 'rgba(138,92,16,0.18)',
     items: ['Cloudflare Workers', 'D1 / R2 / KV', 'Vercel', 'Docker', 'Linux'],
   },
   {

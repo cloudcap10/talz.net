@@ -121,7 +121,7 @@ export default function PortfolioHero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-8 text-sm"
-          style={{ color: 'var(--text-faint)' }}
+          style={{ color: 'var(--text-muted)' }}
         >
           @cloudcap10 · talz.net
         </motion.p>
