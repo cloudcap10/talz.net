@@ -1,22 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  /* ── Site design tokens — Claude/storybloq light theme ── */
-  --bg: #faf9f7;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f5f3ef;
-  --bg-surface: #f0ede8;
-  --border: #e3ddd6;
-  --border-subtle: #ede9e3;
-  --text: #1a1714;
-  --text-muted: #4a4540;
-  --text-faint: #6e6560;
+  --bg: #12110f;
+  --bg-card: #22201d;
+  --bg-card-hover: #282522;
+  --bg-surface: #1c1a18;
+  --border: #2e2b28;
+  --border-subtle: #242220;
+  --text: #e8e4e1;
+  --text-muted: #8a8480;
+  --text-faint: #5e5a55;
   --accent: #cc5c33;
   --accent-dim: #a84527;
   --accent-glow: rgba(204, 92, 51, 0.12);
@@ -24,39 +21,6 @@
   --red: #c94040;
   --yellow: #8a5c10;
   --blue: #2e6ea0;
-
-  /* ── shadcn/ui tokens — mapped to light palette ── */
-  --background: #faf9f7;
-  --foreground: #1a1714;
-  --card: #ffffff;
-  --card-foreground: #1a1714;
-  --popover: #ffffff;
-  --popover-foreground: #1a1714;
-  --primary: #cc5c33;
-  --primary-foreground: #ffffff;
-  --secondary: #f0ede8;
-  --secondary-foreground: #1a1714;
-  --muted: #f0ede8;
-  --muted-foreground: #6b6560;
-  --accent-foreground: #1a1714;
-  --destructive: #c94040;
-  --destructive-foreground: #ffffff;
-  --input: #f0ede8;
-  --ring: #cc5c33;
-  --chart-1: #cc5c33;
-  --chart-2: #1d8a5c;
-  --chart-3: #2e6ea0;
-  --chart-4: #b87a18;
-  --chart-5: #c94040;
-  --radius: 0.625rem;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #1a1714;
-  --sidebar-primary: #cc5c33;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f0ede8;
-  --sidebar-accent-foreground: #1a1714;
-  --sidebar-border: #e3ddd6;
-  --sidebar-ring: #cc5c33;
 }
 
 @theme inline {
@@ -118,7 +82,7 @@ html {
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Onest', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -209,6 +173,17 @@ input::placeholder {
 /* Selection */
 ::selection { background: rgba(204, 92, 51, 0.18); color: var(--text); }
 
+/* Dot-grid background */
+.bg-grid {
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-grid-subtle {
+  background-image: radial-gradient(circle, var(--border-subtle) 0.5px, transparent 0.5px);
+  background-size: 32px 32px;
+}
+
 /* Table styles */
 .comparison-table {
   border-collapse: separate;
@@ -234,8 +209,7 @@ input::placeholder {
 
 /* Card glow on hover */
 .card-glow:hover {
-  border-color: #d4b8ae !important;
-  box-shadow: 0 0 0 1px rgba(204, 92, 51, 0.15), 0 8px 32px rgba(204, 92, 51, 0.08);
+  border-color: var(--accent-dim) !important;
 }
 
 /* Pill badge */
@@ -264,7 +238,7 @@ input::placeholder {
   top: 0;
   z-index: 40;
   backdrop-filter: blur(12px);
-  background: rgba(250, 249, 247, 0.88);
+  background: rgba(18, 17, 15, 0.88);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -277,40 +251,6 @@ input::placeholder {
   padding: 3px 8px;
   font-size: 0.75rem;
   font-weight: 500;
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
