@@ -26,12 +26,12 @@ export default async function ProjectsSection() {
   return (
     <section id="projects" className="px-4 pb-24">
       <div className="max-w-5xl mx-auto">
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold mb-3" style={{ color: 'var(--text)' }}>
-            Projects
+        <div className="mb-12 text-left">
+          <h2 className="font-mono text-2xl font-bold mb-2" style={{ color: 'var(--text)' }}>
+            ## Projects
           </h2>
-          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-            A mix of network tooling and web apps — all open source.
+          <p className="font-mono text-xs" style={{ color: 'var(--text-faint)' }}>
+            # a mix of network tooling and web apps — all open source
           </p>
         </div>
 

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+import { JetBrains_Mono, Onest } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { cn } from "@/lib/utils";
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
+const onest = Onest({ subsets: ['latin'], variable: '--font-sans' });
 
 const SITE_URL = 'https://talz.net';
 
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en" className={cn("font-sans", mono.variable, onest.variable)}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="canonical" href={SITE_URL} />
@@ -57,16 +58,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Nav />
           <main>{children}</main>
           <footer
-            className="text-center py-10 text-xs"
+            className="text-center py-8 font-mono text-[10px]"
             style={{ borderTop: '1px solid var(--border-subtle)', color: 'var(--text-faint)' }}
           >
             <p>
-              Built by{' '}
+              built by{' '}
               <a
                 href="https://github.com/cloudcap10"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: 'var(--accent)' }}
+                className="hover:opacity-80 transition-opacity"
               >
                 Joven Talasan
               </a>

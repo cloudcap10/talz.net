@@ -9,45 +9,37 @@ export default function ContactSection() {
     <section id="contact" className="px-4 pb-28">
       <div className="max-w-2xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="rounded-2xl p-10 text-center"
-          style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border)',
-            boxShadow: '0 4px 24px rgba(0,0,0,0.04)',
-          }}
+          transition={{ duration: 0.35 }}
         >
-          <h2 className="text-3xl font-bold mb-8" style={{ color: 'var(--text)' }}>
-            Contact me
+          <h2 className="font-mono text-2xl font-bold mb-8" style={{ color: 'var(--text)' }}>
+            ## Contact
           </h2>
 
-          <div className="flex items-center justify-center gap-3 flex-wrap">
+          <div className="flex flex-col gap-4">
             <a
               href="mailto:cloning@talz.net"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
-              style={{ background: 'var(--accent)', color: '#fff' }}
+              className="inline-flex items-center gap-3 font-mono text-sm transition-colors"
+              style={{ color: 'var(--text-muted)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--accent)'; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'; }}
             >
-              <Mail size={15} />
-              cloning@talz.net
+              <span style={{ color: 'var(--green)' }}>mail</span>
+              <span style={{ color: 'var(--text-faint)' }}> cloning@talz.net</span>
             </a>
             <a
               href="https://www.linkedin.com/in/joven-talasan/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-colors"
-              style={{
-                background: 'var(--bg-surface)',
-                border: '1px solid var(--border)',
-                color: 'var(--text-muted)',
-              }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)'; }}
+              className="inline-flex items-center gap-3 font-mono text-sm transition-colors"
+              style={{ color: 'var(--text-muted)' }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--accent)'; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text-muted)'; }}
             >
-              <LinkedInIcon size={15} />
-              LinkedIn
+              <span style={{ color: 'var(--blue)' }}>linkedin</span>
+              <span style={{ color: 'var(--text-faint)' }}> /in/joven-talasan</span>
             </a>
           </div>
         </motion.div>

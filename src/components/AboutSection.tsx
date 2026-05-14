@@ -53,18 +53,18 @@ export default function AboutSection() {
     <section id="about" className="px-4 pb-24">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mb-12 text-center"
+          transition={{ duration: 0.35 }}
+          className="mb-12"
         >
-          <h2 className="text-3xl font-bold mb-3" style={{ color: 'var(--text)' }}>
-            About
+          <h2 className="font-mono text-2xl font-bold mb-3" style={{ color: 'var(--text)' }}>
+            ## About
           </h2>
           <p
-            className="text-base max-w-xl mx-auto"
-            style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}
+            className="text-sm"
+            style={{ color: 'var(--text-muted)', lineHeight: 1.7, maxWidth: '36rem' }}
           >
             Network engineer by trade, builder by habit. I automate the repetitive parts of
             network operations and build tools that help teams stay on top of their
@@ -72,39 +72,39 @@ export default function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {SKILLS.map((skill, i) => {
             const Icon = skill.icon;
             return (
               <motion.div
                 key={skill.category}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-2xl p-6"
-                style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
+                transition={{ duration: 0.3, delay: i * 0.04 }}
+                style={{ border: '1px solid var(--border)', background: 'var(--bg-card)' }}
+                className="p-5"
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-2.5 mb-3">
                   <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    className="w-[24px] h-[24px] flex items-center justify-center"
                     style={{ background: skill.bgColor, border: `1px solid ${skill.borderColor}` }}
                   >
-                    <Icon size={18} style={{ color: skill.color }} />
+                    <Icon size={12} style={{ color: skill.color }} />
                   </div>
-                  <h3 className="font-semibold text-sm" style={{ color: 'var(--text)' }}>
+                  <h3 className="font-mono text-xs font-bold" style={{ color: 'var(--text)' }}>
                     {skill.category}
                   </h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {skill.items.map((item) => (
                     <span
                       key={item}
-                      className="text-xs px-2 py-1 rounded-lg"
+                      className="font-mono text-[10px] px-1.5 py-0.5"
                       style={{
-                        background: 'var(--bg-surface)',
-                        color: 'var(--text-muted)',
-                        border: '1px solid var(--border-subtle)',
+                        background: skill.bgColor,
+                        color: skill.color,
+                        border: `1px solid ${skill.borderColor}`,
                       }}
                     >
                       {item}
