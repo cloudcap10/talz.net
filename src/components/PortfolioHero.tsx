@@ -6,35 +6,6 @@ import { Mail01Icon } from '@hugeicons/core-free-icons';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
 import { PROJECTS } from '@/lib/projects';
 
-function TopologySVG() {
-  return (
-    <svg className="topology-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-      <circle cx="200" cy="180" r="24" fill="none" stroke="var(--accent)" strokeWidth="1" />
-      <circle cx="500" cy="100" r="16" fill="none" stroke="var(--text-muted)" strokeWidth="1" />
-      <circle cx="800" cy="200" r="20" fill="none" stroke="var(--accent)" strokeWidth="1" />
-      <circle cx="350" cy="350" r="12" fill="none" stroke="var(--text-muted)" strokeWidth="1" />
-      <circle cx="700" cy="400" r="18" fill="none" stroke="var(--blue)" strokeWidth="1" />
-      <circle cx="900" cy="100" r="10" fill="none" stroke="var(--text-muted)" strokeWidth="1" />
-      <circle cx="100" cy="300" r="8" fill="none" stroke="var(--text-muted)" strokeWidth="1" />
-      <circle cx="1050" cy="300" r="14" fill="none" stroke="var(--green)" strokeWidth="1" />
-      <circle cx="600" cy="250" r="22" fill="none" stroke="var(--accent)" strokeWidth="1" />
-
-      <line x1="200" y1="180" x2="500" y2="100" stroke="var(--border)" strokeWidth="1" />
-      <line x1="500" y1="100" x2="800" y2="200" stroke="var(--border)" strokeWidth="1" />
-      <line x1="800" y1="200" x2="700" y2="400" stroke="var(--border)" strokeWidth="1" />
-      <line x1="700" y1="400" x2="350" y2="350" stroke="var(--border)" strokeWidth="1" />
-      <line x1="350" y1="350" x2="200" y2="180" stroke="var(--border)" strokeWidth="1" />
-      <line x1="500" y1="100" x2="900" y2="100" stroke="var(--border-subtle)" strokeWidth="1" />
-      <line x1="900" y1="100" x2="1050" y2="300" stroke="var(--border-subtle)" strokeWidth="1" />
-      <line x1="1050" y1="300" x2="700" y2="400" stroke="var(--border-subtle)" strokeWidth="1" />
-      <line x1="200" y1="180" x2="100" y2="300" stroke="var(--border-subtle)" strokeWidth="1" />
-      <line x1="800" y1="200" x2="600" y2="250" stroke="var(--border-subtle)" strokeWidth="1" />
-      <line x1="600" y1="250" x2="350" y2="350" stroke="var(--border-subtle)" strokeWidth="1" />
-      <line x1="600" y1="250" x2="700" y2="400" stroke="var(--border-subtle)" strokeWidth="1" />
-    </svg>
-  );
-}
-
 const STATS = [
   { value: '8+', label: 'years in networking' },
   { value: String(PROJECTS.length), label: 'apps shipped' },
@@ -43,12 +14,8 @@ const STATS = [
 
 export default function PortfolioHero() {
   return (
-    <section className="relative overflow-hidden pt-24 pb-24 px-4">
-      <div className="absolute inset-0 pointer-events-none bg-grid-subtle" />
-
-      <TopologySVG />
-
-      <div className="relative max-w-3xl mx-auto">
+    <section className="relative overflow-hidden pt-24 pb-20 px-4">
+      <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,18 +26,16 @@ export default function PortfolioHero() {
             <span className="terminal-dot red" />
             <span className="terminal-dot yellow" />
             <span className="terminal-dot green" />
-            <span className="terminal-label">bash</span>
+            <span className="terminal-label">zsh</span>
           </div>
           <div className="terminal-body">
-            <div className="mb-5">
-              <span className="font-mono text-xs" style={{ color: 'var(--text-faint)' }}>
-                <span style={{ color: 'var(--green)' }}>cloudcap10@talz</span>
-                <span style={{ color: 'var(--text-faint)' }}>:</span>
-                <span style={{ color: 'var(--blue)' }}>~</span>
-                <span style={{ color: 'var(--text-faint)' }}>$ </span>
-                <span style={{ color: 'var(--text)' }}>cat profile</span>
-                <span className="cursor-blink" />
-              </span>
+            <div className="prompt-line">
+              <span className="prompt-user">cloudcap10@talz</span>
+              <span className="prompt-sep">:</span>
+              <span className="prompt-path">~</span>
+              <span className="prompt-dollar">$ </span>
+              <span>cat profile</span>
+              <span className="cursor" />
             </div>
 
             <h1 className="font-mono text-4xl sm:text-6xl font-bold tracking-tight mb-3" style={{ lineHeight: 1.1 }}>
