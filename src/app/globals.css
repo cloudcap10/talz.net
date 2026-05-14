@@ -21,6 +21,38 @@
   --red: #c94040;
   --yellow: #8a5c10;
   --blue: #2e6ea0;
+
+  /* shadcn/ui compatibility tokens — mapped to dark palette */
+  --background: #12110f;
+  --foreground: #e8e4e1;
+  --card: #22201d;
+  --card-foreground: #e8e4e1;
+  --popover: #22201d;
+  --popover-foreground: #e8e4e1;
+  --primary: #cc5c33;
+  --primary-foreground: #e8e4e1;
+  --secondary: #1c1a18;
+  --secondary-foreground: #e8e4e1;
+  --muted: #1c1a18;
+  --muted-foreground: #8a8480;
+  --accent-foreground: #e8e4e1;
+  --destructive: #c94040;
+  --input: #1c1a18;
+  --ring: #cc5c33;
+  --radius: 0;
+  --chart-1: #cc5c33;
+  --chart-2: #1d8a5c;
+  --chart-3: #2e6ea0;
+  --chart-4: #8a5c10;
+  --chart-5: #c94040;
+  --sidebar: #12110f;
+  --sidebar-foreground: #e8e4e1;
+  --sidebar-primary: #cc5c33;
+  --sidebar-primary-foreground: #e8e4e1;
+  --sidebar-accent: #1c1a18;
+  --sidebar-accent-foreground: #e8e4e1;
+  --sidebar-border: #2e2b28;
+  --sidebar-ring: #cc5c33;
 }
 
 @theme inline {
