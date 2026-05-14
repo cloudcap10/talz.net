@@ -30,11 +30,11 @@ export default function Home() {
   return (
     <>
       <PortfolioHero />
-      <div style={{ background: 'var(--bg-surface)', borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)' }}>
+      <div className="border-dot" style={{ background: 'var(--bg-surface)', borderBottom: '1px dashed var(--border)' }}>
         <ProjectsSection />
       </div>
       <AboutSection />
-      <div style={{ background: 'var(--bg-surface)', borderTop: '1px solid var(--border-subtle)' }}>
+      <div className="border-dot" style={{ background: 'var(--bg-surface)' }}>
         <ContactSection />
       </div>
     </>

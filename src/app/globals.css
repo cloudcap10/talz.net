@@ -216,6 +216,11 @@ input::placeholder {
   background-size: 32px 32px;
 }
 
+/* Dotted separators */
+.border-dot {
+  border-top: 1px dashed var(--border);
+}
+
 /* Table styles */
 .comparison-table {
   border-collapse: separate;
