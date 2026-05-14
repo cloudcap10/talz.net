@@ -83,4 +83,17 @@ export const PROJECTS: Project[] = [
     fallbackDescription:
       'Get alerted before your hardware or software goes unsupported. AI researches EOL dates, sends email alerts ahead of expiry, and keeps an auditable record — so nothing slips through.',
   },
+  {
+    id: 'uptimemon',
+    name: 'UptimeMon',
+    tagline: 'Lightweight ICMP uptime monitor',
+    repo: 'cloudcap10/uptimemon',
+    iconId: 'terminal',
+    stack: ['Python', 'asyncio', 'SQLite', 'Telegram API'],
+    color: '#0d9488',
+    bgColor: 'rgba(13,148,136,0.08)',
+    borderColor: 'rgba(13,148,136,0.18)',
+    fallbackDescription:
+      'Pings every core switch on a cycle, runs each result through a per-device state machine, and pushes a Telegram alert the moment a device goes DOWN — with site, IP, vendor, and exact outage timestamp. No web UI, no SNMP, no database server needed.',
+  },
 ];
