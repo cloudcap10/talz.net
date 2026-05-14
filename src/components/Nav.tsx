@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail } from 'lucide-react';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Mail01Icon } from '@hugeicons/core-free-icons';
 
 const NAV_LINKS = [
   { label: '~/projects', href: '/#projects' },
@@ -18,7 +19,7 @@ interface SocialLink {
 const SOCIAL_LINKS: SocialLink[] = [
   { Icon: GitHubIcon, href: 'https://github.com/cloudcap10', label: 'GitHub' },
   { Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/joven-talasan/', label: 'LinkedIn' },
-  { Icon: Mail, href: 'mailto:cloning@talz.net', label: 'Email' },
+  { Icon: ({ size }) => <HugeiconsIcon icon={Mail01Icon} size={size} />, href: 'mailto:cloning@talz.net', label: 'Email' },
 ];
 
 export default function Nav() {

@@ -1,16 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Terminal, Brain, Clock, Route, ExternalLink } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Shield01Icon, TerminalIcon, Clock01Icon, AiBrain01Icon, Route01Icon, Link02Icon } from '@hugeicons/core-free-icons';
 import { GitHubIcon } from '@/components/SocialIcons';
 import type { Project } from '@/lib/projects';
 
 const ICONS = {
-  shield: Shield,
-  terminal: Terminal,
-  brain: Brain,
-  clock: Clock,
-  route: Route,
+  shield: Shield01Icon,
+  terminal: TerminalIcon,
+  brain: AiBrain01Icon,
+  clock: Clock01Icon,
+  route: Route01Icon,
 } as const;
 
 interface Props {
@@ -39,7 +40,7 @@ export default function ProjectCard({ project, description, index }: Props) {
               className="w-[30px] h-[30px] flex items-center justify-center"
               style={{ background: project.bgColor, border: `1px solid ${project.borderColor}` }}
             >
-              <Icon size={15} style={{ color: project.color }} />
+              <HugeiconsIcon icon={Icon} size={15} color={project.color} />
             </div>
             <h3 className="font-mono text-sm font-bold" style={{ color: 'var(--text)' }}>
               {project.name}
@@ -93,7 +94,7 @@ export default function ProjectCard({ project, description, index }: Props) {
               className="inline-flex items-center gap-1.5 font-mono text-[10px]"
               style={{ color: project.color }}
             >
-              <ExternalLink size={11} />
+              <HugeiconsIcon icon={Link02Icon} size={11} />
               live
             </a>
           )}

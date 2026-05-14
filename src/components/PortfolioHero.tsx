@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Mail01Icon } from '@hugeicons/core-free-icons';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
 import { PROJECTS } from '@/lib/projects';
 
@@ -91,7 +92,7 @@ export default function PortfolioHero() {
             className="inline-flex items-center gap-2 px-5 py-2.5 font-mono text-xs font-semibold transition-opacity hover:opacity-90"
             style={{ background: 'var(--accent)', color: '#fff', border: '1px solid var(--accent-dim)' }}
           >
-            <Mail size={13} />
+            <HugeiconsIcon icon={Mail01Icon} size={13} />
             contact
           </a>
           <a

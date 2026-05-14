@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Mail01Icon } from '@hugeicons/core-free-icons';
 import { LinkedInIcon } from '@/components/SocialIcons';
 
 export default function ContactSection() {

@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Network, Code2, Shield, Cpu } from 'lucide-react';
-import type { ElementType } from 'react';
+import { HugeiconsIcon, type IconSvgElement } from '@hugeicons/react';
+import { CellularNetworkIcon, CodeIcon, Shield01Icon, CpuIcon } from '@hugeicons/core-free-icons';
 
 interface SkillGroup {
   category: string;
-  icon: ElementType<{ size?: number; style?: React.CSSProperties }>;
+  icon: IconSvgElement;
   color: string;
   bgColor: string;
   borderColor: string;
@@ -16,7 +16,7 @@ interface SkillGroup {
 const SKILLS: SkillGroup[] = [
   {
     category: 'Network Engineering',
-    icon: Network,
+    icon: CellularNetworkIcon,
     color: '#2e6ea0',
     bgColor: 'rgba(46,110,160,0.08)',
     borderColor: 'rgba(46,110,160,0.18)',
@@ -24,7 +24,7 @@ const SKILLS: SkillGroup[] = [
   },
   {
     category: 'Development',
-    icon: Code2,
+    icon: CodeIcon,
     color: '#7c4dbb',
     bgColor: 'rgba(124,77,187,0.08)',
     borderColor: 'rgba(124,77,187,0.18)',
@@ -32,7 +32,7 @@ const SKILLS: SkillGroup[] = [
   },
   {
     category: 'Infrastructure',
-    icon: Cpu,
+    icon: CpuIcon,
     color: '#8a5c10',
     bgColor: 'rgba(138,92,16,0.08)',
     borderColor: 'rgba(138,92,16,0.18)',
@@ -40,7 +40,7 @@ const SKILLS: SkillGroup[] = [
   },
   {
     category: 'Security',
-    icon: Shield,
+    icon: Shield01Icon,
     color: '#1d8a5c',
     bgColor: 'rgba(29,138,92,0.08)',
     borderColor: 'rgba(29,138,92,0.18)',
@@ -74,7 +74,6 @@ export default function AboutSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {SKILLS.map((skill, i) => {
-            const Icon = skill.icon;
             return (
               <motion.div
                 key={skill.category}
@@ -90,7 +89,7 @@ export default function AboutSection() {
                     className="w-[24px] h-[24px] flex items-center justify-center"
                     style={{ background: skill.bgColor, border: `1px solid ${skill.borderColor}` }}
                   >
-                    <Icon size={12} style={{ color: skill.color }} />
+                    <HugeiconsIcon icon={skill.icon} size={12} color={skill.color} />
                   </div>
                   <h3 className="font-mono text-xs font-bold" style={{ color: 'var(--text)' }}>
                     {skill.category}
