@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://pickmodel.uk/sitemap.xml',
-    host: 'https://pickmodel.uk',
+    sitemap: 'https://talz.net/sitemap.xml',
+    host: 'https://talz.net',
   };
 }
