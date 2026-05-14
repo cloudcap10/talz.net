@@ -34,6 +34,15 @@ export default function ProjectCard({ project, description, index }: Props) {
         className="card-glow h-full flex flex-col transition-all duration-150"
         style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
       >
+        <div className="flex items-center justify-between px-5 pt-4 pb-0">
+          <span className="font-mono text-[10px]" style={{ color: 'var(--text-faint)' }}>
+            {project.id.toUpperCase()}
+          </span>
+          <div className="flex items-center gap-1.5">
+            <span className="led-dot green" />
+            <span className="font-mono text-[9px]" style={{ color: 'var(--text-faint)' }}>ACTIVE</span>
+          </div>
+        </div>
         <div className="p-5 pb-3">
           <div className="mb-3 flex items-center gap-3">
             <div

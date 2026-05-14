@@ -26,15 +26,22 @@ export const metadata: Metadata = {
   },
 };
 
+function SectionConnector() {
+  return <div className="cable-connector" />;
+}
+
 export default function Home() {
   return (
     <>
       <PortfolioHero />
-      <div className="border-dot" style={{ background: 'var(--bg-surface)', borderBottom: '1px dashed var(--border)' }}>
+      <SectionConnector />
+      <div style={{ background: 'var(--bg-surface)' }}>
         <ProjectsSection />
       </div>
+      <SectionConnector />
       <AboutSection />
-      <div className="border-dot" style={{ background: 'var(--bg-surface)' }}>
+      <SectionConnector />
+      <div style={{ background: 'var(--bg-surface)' }}>
         <ContactSection />
       </div>
     </>

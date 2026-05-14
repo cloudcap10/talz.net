@@ -221,6 +221,104 @@ input::placeholder {
   border-top: 1px dashed var(--border);
 }
 
+/* ── Terminal window frame ── */
+.terminal-frame {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  gap: 8px;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+
+.terminal-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-left: auto;
+  color: var(--text-faint);
+}
+
+.terminal-body {
+  padding: 28px 32px;
+}
+
+/* ── Blinking cursor ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  color: var(--accent);
+  font-size: 0.9em;
+}
+
+/* ── Network cable section connector ── */
+.cable-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 32px;
+}
+
+.cable-connector::before {
+  content: '';
+  width: 2px;
+  flex: 1;
+  background: var(--border);
+}
+
+.cable-connector::after {
+  content: '';
+  width: 10px;
+  height: 6px;
+  border: 1px solid var(--border);
+  border-top: none;
+  background: var(--bg-card);
+}
+
+/* ── LED indicator for project cards ── */
+.led-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.led-dot.green {
+  background: #27c93f;
+  box-shadow: 0 0 3px rgba(39,201,63,0.3), inset 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* ── Network topology lines (SVG helper) ── */
+.topology-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.04;
+}
+
 /* Table styles */
 .comparison-table {
   border-collapse: separate;
