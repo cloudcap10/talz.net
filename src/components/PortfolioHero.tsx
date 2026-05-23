@@ -1,18 +1,32 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Mail01Icon } from '@hugeicons/core-free-icons';
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
 import { PROJECTS } from '@/lib/projects';
 
-const STATS = [
-  { value: '8+', label: 'years in networking' },
-  { value: String(PROJECTS.length), label: 'apps shipped' },
-  { value: '157', label: 'public repos' },
-];
+interface Stat {
+  value: string;
+  label: string;
+}
 
 export default function PortfolioHero() {
+  const [repoCount, setRepoCount] = useState<string>('...');
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/cloudcap10')
+      .then((res) => res.json())
+      .then((data) => setRepoCount(String(data.public_repos || '?')))
+      .catch(() => setRepoCount('?'));
+  }, []);
+
+  const stats: Stat[] = [
+    { value: '8+', label: 'years in networking' },
+    { value: String(PROJECTS.length), label: 'apps shipped' },
+    { value: repoCount, label: 'public repos' },
+  ];
   return (
     <section className="relative overflow-hidden pt-24 pb-20 px-4">
       <div className="max-w-3xl mx-auto">
@@ -98,7 +112,7 @@ export default function PortfolioHero() {
             </div>
 
             <div className="flex gap-px">
-              {STATS.map((stat) => (
+              {stats.map((stat) => (
                 <div
                   key={stat.label}
                   className="flex-1 p-3 text-center"
