@@ -3,7 +3,7 @@ export interface Project {
   name: string;
   tagline: string;
   repo: string;
-  iconId: 'shield' | 'terminal' | 'brain' | 'clock' | 'route';
+  iconId: 'shield' | 'terminal' | 'brain' | 'clock' | 'route' | 'search';
   stack: string[];
   live?: string;
   color: string;
@@ -82,6 +82,19 @@ export const PROJECTS: Project[] = [
     borderColor: 'rgba(138,92,16,0.18)',
     fallbackDescription:
       'Get alerted before your hardware or software goes unsupported. AI researches EOL dates, sends email alerts ahead of expiry, and keeps an auditable record — so nothing slips through.',
+  },
+  {
+    id: 'ipfinder',
+    name: 'IPFinder',
+    tagline: 'Multi-site IP inventory lookup bot',
+    repo: 'cloudcap10/ipfinder',
+    iconId: 'search',
+    stack: ['Python', 'SQLite', 'Telegram API', 'asyncio'],
+    color: '#0369a1',
+    bgColor: 'rgba(3,105,161,0.08)',
+    borderColor: 'rgba(3,105,161,0.18)',
+    fallbackDescription:
+      'Type an IP, get the site, VLAN, and subnet that owns it — via longest-prefix match across thousands of subnets. Telegram bot + CLI, subnet calculator, free-IP finder, and utilization alerts. Runs in under 30 MB RAM, no external services.',
   },
   {
     id: 'uptimemon',

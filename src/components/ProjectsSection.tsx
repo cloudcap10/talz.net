@@ -1,6 +1,6 @@
 import { PROJECTS } from '@/lib/projects';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Shield01Icon, TerminalIcon, Clock01Icon, AiBrain01Icon, Route01Icon, Link02Icon } from '@hugeicons/core-free-icons';
+import { Shield01Icon, TerminalIcon, Clock01Icon, AiBrain01Icon, Route01Icon, Link02Icon, GlobalSearchIcon } from '@hugeicons/core-free-icons';
 import { GitHubIcon } from '@/components/SocialIcons';
 
 const ICONS = {
@@ -9,6 +9,7 @@ const ICONS = {
   brain: AiBrain01Icon,
   clock: Clock01Icon,
   route: Route01Icon,
+  search: GlobalSearchIcon,
 } as const;
 
 async function fetchDescription(repo: string, fallback: string): Promise<string> {
