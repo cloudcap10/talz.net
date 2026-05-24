@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import CliTerminal from '@/components/CliTerminal.astro';
 
 const CHEATSHEETS = [
   {
@@ -102,6 +103,10 @@ const CHEATSHEETS = [
       <p class="text-sm mb-10 max-w-xl" style="color: var(--text-muted); line-height: 1.7">
         Networking, security, cloud, and infrastructure reference guides — formatted for quick study.
       </p>
+
+      <div class="mb-12">
+        <CliTerminal />
+      </div>
 
       <script type="application/ld+json" set:html={JSON.stringify({
         "@context": "https://schema.org",
