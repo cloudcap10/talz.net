@@ -1,4 +1,64 @@
+const WELL_KNOWN: Record<string, [string, object]> = {
+  '/.well-known/api-catalog': ['application/linkset+json', {
+    linkset: [{
+      anchor: 'https://www.talz.net',
+      link: [
+        { href: 'https://api.github.com/repos/cloudcap10/talz.net', rel: 'service-desc', type: 'application/vnd.oai.openapi+json' },
+        { href: 'https://github.com/cloudcap10/talz.net', rel: 'service-doc', type: 'text/html' },
+        { href: 'https://github.com/cloudcap10', rel: 'status', type: 'text/html' },
+      ],
+    }],
+  }],
+  '/.well-known/openid-configuration': ['application/json', {
+    issuer: 'https://www.talz.net',
+    authorization_endpoint: 'https://github.com/login/oauth/authorize',
+    token_endpoint: 'https://github.com/login/oauth/access_token',
+    jwks_uri: 'https://www.talz.net/.well-known/jwks.json',
+    response_types_supported: ['code'],
+    response_modes_supported: ['query', 'form_post'],
+    grant_types_supported: ['authorization_code'],
+    subject_types_supported: ['public'],
+    id_token_signing_alg_values_supported: ['RS256'],
+    scopes_supported: ['openid', 'profile', 'email'],
+    claims_supported: ['sub', 'iss', 'name', 'email'],
+    token_endpoint_auth_methods_supported: ['client_secret_basic'],
+  }],
+  '/.well-known/oauth-authorization-server': ['application/json', {
+    issuer: 'https://www.talz.net',
+    authorization_endpoint: 'https://github.com/login/oauth/authorize',
+    token_endpoint: 'https://github.com/login/oauth/access_token',
+    jwks_uri: 'https://www.talz.net/.well-known/jwks.json',
+    response_types_supported: ['code'],
+    grant_types_supported: ['authorization_code'],
+    token_endpoint_auth_methods_supported: ['client_secret_basic'],
+    scopes_supported: ['openid', 'profile', 'email', 'repo'],
+  }],
+  '/.well-known/oauth-protected-resource': ['application/json', {
+    resource: 'https://www.talz.net',
+    authorization_servers: ['https://github.com/login/oauth'],
+    scopes_supported: ['openid', 'profile', 'email', 'repo', 'read:user'],
+    bearer_methods_supported: ['Authorization header'],
+    resource_documentation: 'https://docs.github.com/en/rest',
+  }],
+};
+
 export async function onRequest({ request, next }) {
+  const url = new URL(request.url);
+  const path = url.pathname;
+
+  const wk = WELL_KNOWN[path];
+  if (wk) {
+    const [contentType, body] = wk;
+    return new Response(JSON.stringify(body, null, 2), {
+      headers: { 'Content-Type': contentType, 'Access-Control-Allow-Origin': '*' },
+    });
+  }
+
+  if (url.hostname === 'talz.net') {
+    url.hostname = 'www.talz.net';
+    return Response.redirect(url.toString(), 301);
+  }
+
   const accept = request.headers.get('Accept') || '';
 
   if (accept.includes('text/markdown')) {
@@ -7,10 +67,7 @@ export async function onRequest({ request, next }) {
     const markdown = htmlToMarkdown(html);
     const tokenCount = markdown.split(/\s+/).filter(Boolean).length;
     return new Response(markdown, {
-      headers: {
-        'Content-Type': 'text/markdown',
-        'X-Markdown-Tokens': String(tokenCount),
-      },
+      headers: { 'Content-Type': 'text/markdown', 'X-Markdown-Tokens': String(tokenCount) },
     });
   }
 
@@ -24,7 +81,7 @@ export async function onRequest({ request, next }) {
   headers.append('Link', '</.well-known/mcp/server-card.json>; rel="mcp-server"');
   headers.append('Link', '</sitemap-index.xml>; rel="sitemap"');
   return new Response(response.body, { status: response.status, headers });
-};
+}
 
 function htmlToMarkdown(html: string): string {
   let md = html;
