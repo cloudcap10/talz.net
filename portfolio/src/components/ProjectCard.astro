@@ -1,0 +1,47 @@
+---
+import type { Project } from '@/lib/projects';
+
+interface Props {
+  project: Project;
+  description: string;
+}
+
+const { project, description } = Astro.props;
+
+const ICONS: Record<string, string> = {
+  shield: '🛡',
+  terminal: '⌨',
+  brain: '🧠',
+  clock: '⏱',
+  route: '🔀',
+  search: '🔍',
+};
+---
+
+<div class="p-5 rounded-xl border-2 transition-all" style="background: var(--bg-card); border-color: var(--border);">
+  <div class="flex items-start gap-3">
+    <div class="flex items-center justify-center w-8 h-8 rounded-lg text-sm shrink-0" style="background: {project.bgColor}; border: 1px solid {project.borderColor}">
+      {ICONS[project.iconId]}
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-2 flex-wrap">
+        <h3 class="font-bold text-base">{project.name}</h3>
+        <span class="text-xs" style="color: {project.color}">{project.tagline}</span>
+      </div>
+      <p class="text-sm mt-1.5 leading-relaxed" style="color: var(--text-muted)">{description}</p>
+      <div class="flex flex-wrap gap-1.5 mt-3">
+        {project.stack.map((tech) => (
+          <span class="text-xs px-2 py-0.5 rounded-full font-mono" style="background: var(--bg-surface); color: var(--text-muted)">
+            {tech}
+          </span>
+        ))}
+      </div>
+      <div class="flex gap-4 mt-3">
+        <a href={"https://github.com/" + project.repo} target="_blank" class="text-xs font-semibold" style="color: var(--accent)">source →</a>
+        {project.live && (
+          <a href={project.live} target="_blank" class="text-xs font-semibold" style="color: var(--text-muted)">live →</a>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
