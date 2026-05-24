@@ -322,4 +322,28 @@ const SECTIONS = [
       </div>
     </div>
   </main>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://talz.net" },
+      { "@type": "ListItem", "position": 2, "name": "Cheatsheets", "item": "https://talz.net/cheatsheet/" },
+      { "@type": "ListItem", "position": 3, "name": "BGP Cheatsheet", "item": "https://talz.net/cheatsheet/bgp/" }
+    ]
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is BGP?", "acceptedAnswer": { "@type": "Answer", "text": "Path Vector protocol between Autonomous Systems" } },
+      { "@type": "Question", "name": "Which port does BGP use?", "acceptedAnswer": { "@type": "Answer", "text": "TCP port 179" } },
+      { "@type": "Question", "name": "What are the BGP states?", "acceptedAnswer": { "@type": "Answer", "text": "Idle, Connect, OpenSent, OpenConfirm, Established" } },
+      { "@type": "Question", "name": "What is the difference between eBGP and iBGP?", "acceptedAnswer": { "@type": "Answer", "text": "eBGP runs between different ASes, iBGP runs within the same AS" } },
+      { "@type": "Question", "name": "What are the default BGP timers?", "acceptedAnswer": { "@type": "Answer", "text": "Keepalive 60s, Hold 180s, Update 30s" } },
+      { "@type": "Question", "name": "Which attribute is used for path selection within an AS?", "acceptedAnswer": { "@type": "Answer", "text": "Local Preference" } },
+      { "@type": "Question", "name": "Which BGP attribute prevents routing loops?", "acceptedAnswer": { "@type": "Answer", "text": "AS Path" } },
+      { "@type": "Question", "name": "What is a Route Reflector in BGP?", "acceptedAnswer": { "@type": "Answer", "text": "Reduces the need for a full iBGP mesh" } },
+      { "@type": "Question", "name": "What is MED in BGP?", "acceptedAnswer": { "@type": "Answer", "text": "Multi Exit Discriminator" } }
+    ]
+  })} />
 </Layout>

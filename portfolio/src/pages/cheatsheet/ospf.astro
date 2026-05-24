@@ -400,4 +400,37 @@ const SECTIONS = [
       </div>
     </div>
   </main>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://talz.net" },
+      { "@type": "ListItem", "position": 2, "name": "Cheatsheets", "item": "https://talz.net/cheatsheet/" },
+      { "@type": "ListItem", "position": 3, "name": "OSPF Cheatsheet", "item": "https://talz.net/cheatsheet/ospf/" }
+    ]
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is OSPF?", "acceptedAnswer": { "@type": "Answer", "text": "Link-State IGP using SPF algorithm" } },
+      { "@type": "Question", "name": "What protocol number does OSPF use?", "acceptedAnswer": { "@type": "Answer", "text": "89" } },
+      { "@type": "Question", "name": "What algorithm does OSPF use?", "acceptedAnswer": { "@type": "Answer", "text": "Dijkstra's SPF algorithm" } },
+      { "@type": "Question", "name": "What is the default Administrative Distance for OSPF?", "acceptedAnswer": { "@type": "Answer", "text": "110" } },
+      { "@type": "Question", "name": "What is the OSPF backbone area?", "acceptedAnswer": { "@type": "Answer", "text": "Area 0" } },
+      { "@type": "Question", "name": "What are OSPF packet types?", "acceptedAnswer": { "@type": "Answer", "text": "Hello, DBD, LSR, LSU, LSAck" } },
+      { "@type": "Question", "name": "What are the OSPF neighbor states?", "acceptedAnswer": { "@type": "Answer", "text": "Down, Init, 2-Way, ExStart, Exchange, Loading, Full" } },
+      { "@type": "Question", "name": "What is the default Hello interval for OSPF?", "acceptedAnswer": { "@type": "Answer", "text": "10 seconds" } },
+      { "@type": "Question", "name": "What is the default Dead interval for OSPF?", "acceptedAnswer": { "@type": "Answer", "text": "40 seconds" } },
+      { "@type": "Question", "name": "What is DR and BDR in OSPF?", "acceptedAnswer": { "@type": "Answer", "text": "Designated Router and Backup Designated Router" } },
+      { "@type": "Question", "name": "What does LSA stand for?", "acceptedAnswer": { "@type": "Answer", "text": "Link State Advertisement" } },
+      { "@type": "Question", "name": "What does LSDB stand for?", "acceptedAnswer": { "@type": "Answer", "text": "Link State Database" } },
+      { "@type": "Question", "name": "What is the difference between OSPF E1 and E2 routes?", "acceptedAnswer": { "@type": "Answer", "text": "E1 includes internal plus external cost, E2 uses external cost only" } },
+      { "@type": "Question", "name": "What is the purpose of an OSPF stub area?", "acceptedAnswer": { "@type": "Answer", "text": "To reduce LSAs by blocking external routes" } },
+      { "@type": "Question", "name": "What does a passive interface do in OSPF?", "acceptedAnswer": { "@type": "Answer", "text": "The interface does not send Hello packets" } },
+      { "@type": "Question", "name": "What does SPF stand for?", "acceptedAnswer": { "@type": "Answer", "text": "Shortest Path First algorithm" } },
+      { "@type": "Question", "name": "Does OSPF support ECMP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, Equal-Cost Multi-Path" } },
+      { "@type": "Question", "name": "How to verify OSPF neighbors?", "acceptedAnswer": { "@type": "Answer", "text": "Show ip ospf neighbor" } }
+    ]
+  })} />
 </Layout>

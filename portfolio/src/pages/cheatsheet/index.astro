@@ -51,6 +51,13 @@ const CHEATSHEETS = [
     desc: 'Essential Windows networking commands — ipconfig, ping, tracert, netstat, arp, nslookup, and more.',
     tags: ['Windows', 'CLI', 'Troubleshooting'],
   },
+  {
+    title: 'VMware vs Nutanix',
+    subtitle: 'Virtualization vs HCI',
+    href: '/cheatsheet/vmware-vs-nutanix',
+    desc: 'Compare VMware virtualization and Nutanix hyperconverged infrastructure — strengths, differences, and use cases.',
+    tags: ['VMware', 'Nutanix', 'HCI'],
+  },
 ];
 ---
 
@@ -67,6 +74,15 @@ const CHEATSHEETS = [
       <p class="text-sm mb-10 max-w-xl" style="color: var(--text-muted); line-height: 1.7">
         Networking, security, cloud, and infrastructure reference guides — formatted for quick study.
       </p>
+
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Cheatsheets — Joven Talasan",
+        "description": "Networking, security, cloud, and infrastructure reference guides — formatted for quick study.",
+        "url": "https://talz.net/cheatsheet/",
+        "isPartOf": { "@type": "WebSite", "name": "talz.net", "url": "https://talz.net" },
+      })} />
 
       <div class="flex flex-col gap-4">
         {CHEATSHEETS.map(cs => (

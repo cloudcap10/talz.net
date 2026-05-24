@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://talz.net/sitemap-index.xml

@@ -18,10 +18,10 @@ const SITE_URL = 'https://talz.net';
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={SITE_URL} />
+    <link rel="canonical" href={SITE_URL + Astro.url.pathname} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:url" content={SITE_URL + Astro.url.pathname} />
     <meta name="twitter:card" content="summary_large_image" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Onest:wght@400;500;600;700;800;900&display=swap');

@@ -17,4 +17,14 @@ import Footer from '@/components/Footer.astro';
     <Contact />
   </main>
   <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joven Talasan",
+    "url": "https://talz.net",
+    "jobTitle": "Network Engineer",
+    "sameAs": [
+      "https://github.com/cloudcap10"
+    ]
+  })} />
 </Layout>

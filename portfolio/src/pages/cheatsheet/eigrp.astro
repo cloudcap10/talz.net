@@ -392,4 +392,34 @@ R2(config-router)# no auto-summary</pre>
       </div>
     </div>
   </main>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://talz.net" },
+      { "@type": "ListItem", "position": 2, "name": "Cheatsheets", "item": "https://talz.net/cheatsheet/" },
+      { "@type": "ListItem", "position": 3, "name": "EIGRP Cheatsheet", "item": "https://talz.net/cheatsheet/eigrp/" }
+    ]
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "Cisco proprietary IGP using DUAL algorithm" } },
+      { "@type": "Question", "name": "What protocol number does EIGRP use?", "acceptedAnswer": { "@type": "Answer", "text": "88" } },
+      { "@type": "Question", "name": "Which algorithm does EIGRP use?", "acceptedAnswer": { "@type": "Answer", "text": "DUAL (Diffusing Update Algorithm)" } },
+      { "@type": "Question", "name": "What are the EIGRP neighbor states?", "acceptedAnswer": { "@type": "Answer", "text": "Down, Init, 2-Way, Up" } },
+      { "@type": "Question", "name": "What is the default Hello interval for EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "5 seconds on LAN, 15 seconds on WAN" } },
+      { "@type": "Question", "name": "What is the default Hold time for EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "15 seconds on LAN, 45 seconds on WAN" } },
+      { "@type": "Question", "name": "What is the default Administrative Distance for EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "90 for internal routes, 170 for external routes" } },
+      { "@type": "Question", "name": "What are the EIGRP packet types?", "acceptedAnswer": { "@type": "Answer", "text": "Hello, Update, Query, Reply, ACK" } },
+      { "@type": "Question", "name": "What metric does EIGRP use?", "acceptedAnswer": { "@type": "Answer", "text": "Bandwidth, Load, Delay, Reliability" } },
+      { "@type": "Question", "name": "What is the EIGRP multicast address?", "acceptedAnswer": { "@type": "Answer", "text": "224.0.0.10" } },
+      { "@type": "Question", "name": "What is DUAL in EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "Diffusing Update Algorithm" } },
+      { "@type": "Question", "name": "What is a feasible successor in EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "Backup path that is loop-free" } },
+      { "@type": "Question", "name": "Does EIGRP support VLSM?", "acceptedAnswer": { "@type": "Answer", "text": "Yes" } },
+      { "@type": "Question", "name": "What are the advantages of EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "Fast convergence, efficient, scalable" } },
+      { "@type": "Question", "name": "What are the disadvantages of EIGRP?", "acceptedAnswer": { "@type": "Answer", "text": "Proprietary, complex troubleshooting" } }
+    ]
+  })} />
 </Layout>

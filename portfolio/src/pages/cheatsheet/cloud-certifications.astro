@@ -187,4 +187,13 @@ const ROLES = [
       </div>
     </div>
   </main>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://talz.net" },
+      { "@type": "ListItem", "position": 2, "name": "Cheatsheets", "item": "https://talz.net/cheatsheet/" },
+      { "@type": "ListItem", "position": 3, "name": "Cloud Certifications Cheatsheet", "item": "https://talz.net/cheatsheet/cloud-certifications/" }
+    ]
+  })} />
 </Layout>
