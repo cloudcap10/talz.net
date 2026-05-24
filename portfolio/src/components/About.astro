@@ -2,22 +2,18 @@
 const SKILLS = [
   {
     category: 'Network Engineering',
-    color: '#2e6ea0',
     items: ['Cisco IOS', 'Alcatel-Lucent', 'Aruba', 'BGP / OSPF', 'Network Automation', 'Python Netmiko'],
   },
   {
     category: 'Development',
-    color: '#7c4dbb',
     items: ['TypeScript', 'Python', 'Next.js', 'React', 'Tailwind CSS', 'REST APIs'],
   },
   {
     category: 'Infrastructure',
-    color: '#8a5c10',
     items: ['Cloudflare Workers', 'D1 / R2 / KV', 'Vercel', 'Docker', 'Linux'],
   },
   {
     category: 'Security',
-    color: '#1d8a5c',
     items: ['Zero-knowledge encryption', 'AES-256-GCM', 'JWT / OAuth2', 'Network hardening', 'EOL / CVE tracking'],
   },
 ];
@@ -33,10 +29,10 @@ const SKILLS = [
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {SKILLS.map((skill) => (
         <div class="p-5 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
-          <h3 class="font-bold text-sm uppercase tracking-wide mb-3" style={{ color: skill.color }}>{skill.category}</h3>
+          <h3 class="font-bold text-sm uppercase tracking-wide mb-3" style="color: var(--accent)">{skill.category}</h3>
           <div class="flex flex-wrap gap-2">
             {skill.items.map((item) => (
-              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style={{ background: `${skill.color}15`, color: skill.color }}>{item}</span>
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style="background: var(--bg-surface); color: var(--text-muted)">{item}</span>
             ))}
           </div>
         </div>

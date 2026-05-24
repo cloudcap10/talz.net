@@ -20,13 +20,13 @@ const ICONS: Record<string, string> = {
 
 <div class="p-5 rounded-xl border-2 transition-all" style="background: var(--bg-card); border-color: var(--border);">
   <div class="flex items-start gap-3">
-    <div class="flex items-center justify-center w-8 h-8 rounded-lg text-sm shrink-0" style={{ background: project.bgColor, border: `1px solid ${project.borderColor}` }}>
+    <div class="flex items-center justify-center w-8 h-8 rounded-lg text-sm shrink-0" style="background: var(--bg-surface); border: 1px solid var(--border)">
       <span class="icon-svg" set:html={ICONS[project.iconId]} />
     </div>
     <div class="flex-1 min-w-0">
       <div class="flex items-center gap-2 flex-wrap">
         <h3 class="font-bold text-base">{project.name}</h3>
-        <span class="text-xs" style={{ color: project.color }}>{project.tagline}</span>
+        <span class="text-xs" style="color: var(--text-muted)">{project.tagline}</span>
       </div>
       <p class="text-sm mt-1.5 leading-relaxed" style="color: var(--text-muted)">{description}</p>
       <div class="flex flex-wrap gap-1.5 mt-3">

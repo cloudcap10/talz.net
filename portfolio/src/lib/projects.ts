@@ -6,9 +6,6 @@ export interface Project {
   iconId: 'shield' | 'terminal' | 'brain' | 'clock' | 'route' | 'search';
   stack: string[];
   live?: string;
-  color: string;
-  bgColor: string;
-  borderColor: string;
   fallbackDescription: string;
 }
 
@@ -21,9 +18,6 @@ export const PROJECTS: Project[] = [
     iconId: 'shield',
     stack: ['TypeScript', 'React', 'Cloudflare Workers', 'R2', 'D1'],
     live: 'https://filevanish.com',
-    color: '#1d8a5c',
-    bgColor: 'rgba(29,138,92,0.08)',
-    borderColor: 'rgba(29,138,92,0.18)',
     fallbackDescription:
       "Files are encrypted before they leave your browser — the server never sees the contents. AES-256-GCM, burn-after-reading, and password protection built on Cloudflare's global edge.",
   },
@@ -35,9 +29,6 @@ export const PROJECTS: Project[] = [
     iconId: 'terminal',
     stack: ['Python 3.10+', 'Cisco IOS', 'Alcatel', 'Aruba', 'IIS'],
     live: 'https://netscript.talz.net',
-    color: '#2e6ea0',
-    bgColor: 'rgba(46,110,160,0.08)',
-    borderColor: 'rgba(46,110,160,0.18)',
     fallbackDescription:
       'Turns hours of manual CLI work into a scheduled job. Automatically backs up configs and tracks inventory across Cisco, Alcatel, and Aruba devices — with a web portal for reporting.',
   },
@@ -49,9 +40,6 @@ export const PROJECTS: Project[] = [
     iconId: 'brain',
     stack: ['TypeScript', 'Next.js', 'YAML', 'Tailwind CSS'],
     live: 'https://pickmodel.uk',
-    color: '#7c4dbb',
-    bgColor: 'rgba(124,77,187,0.08)',
-    borderColor: 'rgba(124,77,187,0.18)',
     fallbackDescription:
       'One page instead of 20 browser tabs. Compare AI models by context window, price per token, and benchmark scores. YAML-driven so the data stays current without a full rebuild.',
   },
@@ -63,9 +51,6 @@ export const PROJECTS: Project[] = [
     iconId: 'route',
     stack: ['TypeScript', 'React', 'Vite', 'GitHub Pages', 'GitHub Actions'],
     live: 'https://cloudcap10.github.io/traefik-gen/',
-    color: '#b45309',
-    bgColor: 'rgba(180,83,9,0.08)',
-    borderColor: 'rgba(180,83,9,0.18)',
     fallbackDescription:
       'Paste any docker-compose.yml and get a Traefik-ready config instantly — labels injected, ports stripped, secrets replaced with safe placeholders. Push to GitHub and your VPS deploys the app automatically in under 60 seconds.',
   },
@@ -77,9 +62,6 @@ export const PROJECTS: Project[] = [
     iconId: 'clock',
     stack: ['TypeScript', 'Next.js 15', 'Cloudflare Workers', 'D1', 'Grok AI'],
     live: 'https://supportexpiry.com',
-    color: '#8a5c10',
-    bgColor: 'rgba(138,92,16,0.08)',
-    borderColor: 'rgba(138,92,16,0.18)',
     fallbackDescription:
       'Get alerted before your hardware or software goes unsupported. AI researches EOL dates, sends email alerts ahead of expiry, and keeps an auditable record — so nothing slips through.',
   },
@@ -90,9 +72,6 @@ export const PROJECTS: Project[] = [
     repo: 'cloudcap10/ipfinder',
     iconId: 'search',
     stack: ['Python', 'SQLite', 'Telegram API', 'asyncio'],
-    color: '#0369a1',
-    bgColor: 'rgba(3,105,161,0.08)',
-    borderColor: 'rgba(3,105,161,0.18)',
     fallbackDescription:
       'Type an IP, get the site, VLAN, and subnet that owns it — via longest-prefix match across thousands of subnets. Telegram bot + CLI, subnet calculator, free-IP finder, and utilization alerts. Runs in under 30 MB RAM, no external services.',
   },
@@ -103,9 +82,6 @@ export const PROJECTS: Project[] = [
     repo: 'cloudcap10/uptimemon',
     iconId: 'terminal',
     stack: ['Python', 'asyncio', 'SQLite', 'Telegram API'],
-    color: '#0d9488',
-    bgColor: 'rgba(13,148,136,0.08)',
-    borderColor: 'rgba(13,148,136,0.18)',
     fallbackDescription:
       'Pings every core switch on a cycle, runs each result through a per-device state machine, and pushes a Telegram alert the moment a device goes DOWN — with site, IP, vendor, and exact outage timestamp. No web UI, no SNMP, no database server needed.',
   },

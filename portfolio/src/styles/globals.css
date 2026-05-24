@@ -10,11 +10,7 @@
   --text-muted: #777;
   --text-faint: #aaa;
   --accent: #e8a838;
-  --accent-dim: #d4952a;
   --accent-glow: rgba(232, 168, 56, 0.15);
-  --green: #2b9d6a;
-  --blue: #3b82f6;
-  --red: #ef4444;
 }
 
 @theme inline {
