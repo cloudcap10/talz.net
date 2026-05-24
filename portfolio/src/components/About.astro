@@ -33,10 +33,10 @@ const SKILLS = [
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {SKILLS.map((skill) => (
         <div class="p-5 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
-          <h3 class="font-bold text-sm uppercase tracking-wide mb-3" style="color: {skill.color}">{skill.category}</h3>
+          <h3 class="font-bold text-sm uppercase tracking-wide mb-3" style={{ color: skill.color }}>{skill.category}</h3>
           <div class="flex flex-wrap gap-2">
             {skill.items.map((item) => (
-              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style="background: {skill.color}15; color: {skill.color}">{item}</span>
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style={{ background: `${skill.color}15`, color: skill.color }}>{item}</span>
             ))}
           </div>
         </div>
