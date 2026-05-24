@@ -1,0 +1,370 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const SECTIONS = [
+  { id: 'prerequisites', title: 'Prerequisites' },
+  { id: 'initial-apic-setup', title: 'Initial APIC Setup' },
+  { id: 'fabric-discovery', title: 'Fabric Discovery Process' },
+  { id: 'isis-formation', title: 'IS-IS Formation' },
+  { id: 'apic-cluster', title: 'APIC Cluster Formation' },
+  { id: 'appliance-vector', title: 'Appliance Vector (AV)' },
+  { id: 'verification', title: 'Verification Commands' },
+  { id: 'end-to-end', title: 'End-to-End Flow' },
+];
+---
+
+<Layout title="Cisco ACI Fabric Discovery Cheatsheet — Joven Talasan" description="Complete Cisco ACI fabric discovery process: APIC setup, LLDP neighbor discovery, DHCP TEP assignment, IS-IS underlay routing, and APIC cluster formation.">
+  <main>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <a href="/cheatsheet" class="inline-flex items-center gap-1.5 text-sm mb-8" style="color: var(--accent)">
+        ← back to cheatsheets
+      </a>
+
+      <div class="flex items-center gap-4 mb-2">
+        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style="background: var(--accent); color: #1a1a1a">Data Center</span>
+        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style="background: var(--bg-surface); color: var(--text-muted)">Cisco</span>
+      </div>
+
+      <h1 class="font-black uppercase tracking-tight mb-2" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 0.95">
+        ACI Fabric <span style="color: var(--accent)">Discovery</span>
+      </h1>
+      <p class="text-sm mb-6" style="color: var(--text-muted)">Cisco ACI — complete fabric discovery process from APIC setup to full cluster formation.</p>
+
+      <div class="flex flex-wrap gap-2 mb-8 text-xs font-mono" style="color: var(--text-faint)">
+        <span>12 min read</span>
+        <span>•</span>
+        <span>8 sections</span>
+      </div>
+
+      <ul class="flex flex-wrap gap-2 mb-10 text-xs font-mono">
+        {SECTIONS.map(s => (
+          <li>
+            <a href={"#" + s.id} class="px-3 py-1.5 rounded-full border transition-colors" style="border-color: var(--border); color: var(--text-muted)">
+              {s.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div id="prerequisites" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#prerequisites" class="hover-underline">Prerequisites</a>
+        </h2>
+
+        <h3 class="text-sm font-bold uppercase tracking-wide mb-2" style="color: var(--accent)">Physical Topology Rules</h3>
+        <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="font-bold mb-1" style="color: var(--text)">✓ Allowed</p>
+            <ul style="color: var(--text-muted)">
+              <li>Leaf → Spine</li>
+              <li>APIC → Leaf</li>
+              <li>APIC → Leaf (Infra/Data links)</li>
+              <li>Leaf → Spine + Data Links</li>
+            </ul>
+          </div>
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="font-bold mb-1" style="color: var(--text)">✗ Not Allowed</p>
+            <ul style="color: var(--text-muted)">
+              <li>Leaf → Leaf</li>
+              <li>Spine → Spine</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="text-sm font-bold uppercase tracking-wide mb-2" style="color: var(--accent)">Other Prerequisites</h3>
+        <ul class="space-y-1 text-sm" style="color: var(--text-muted)">
+          <li>✓ Same version of firmware on APICs and all switches</li>
+          <li>✓ APICs must be connected to different Leafs (dual-homed)</li>
+          <li>✓ Initial setup script must be completed on APICs</li>
+        </ul>
+      </div>
+
+      <div id="initial-apic-setup" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#initial-apic-setup" class="hover-underline">Initial APIC Setup</a>
+        </h2>
+        <p class="text-sm mb-3" style="color: var(--text-muted)">
+          Done on APIC-1 using Console (Setup Wizard)
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <div>
+            <h3 class="font-bold mb-1" style="color: var(--text)">Fabric Information</h3>
+            <ul style="color: var(--text-muted)">
+              <li>• Fabric Name</li>
+              <li>• Fabric ID</li>
+              <li>• Number of APICs</li>
+              <li>• POD ID</li>
+              <li>• Controller ID</li>
+              <li>• Controller Name</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: var(--text)">Infrastructure Parameters</h3>
+            <ul style="color: var(--text-muted)">
+              <li>• TEP Pool (Infra VRF): <code>10.0.0.0/16</code></li>
+              <li>• Infra VLAN: <code>4093</code></li>
+              <li>• BD Multicast Pool (GIPO): <code>225.0.0.0/15</code></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: var(--text)">OOB Management</h3>
+            <ul style="color: var(--text-muted)">
+              <li>• OOB Mgmt IP: <code>192.168.10.1/24</code></li>
+              <li>• Default Gateway: <code>192.168.10.254</code></li>
+              <li>• Interface Speed/Duplex: <code>auto</code></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold mb-1" style="color: var(--text)">Admin Configuration</h3>
+            <ul style="color: var(--text-muted)">
+              <li>• Admin Password</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-sm mt-3" style="color: var(--text-muted)">
+          After setup, access GUI: <code>https://&lt;OOB_MGMT_IP&gt;</code>
+        </p>
+      </div>
+
+      <div id="fabric-discovery" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#fabric-discovery" class="hover-underline">Fabric Discovery Process</a>
+        </h2>
+
+        <div class="space-y-4 text-sm">
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <h3 class="font-bold mb-1" style="color: var(--accent)">1. APIC Discovers First Leaf (LLDP)</h3>
+            <ul style="color: var(--text-muted)">
+              <li>APIC-1 sends LLDP to connected Leaf</li>
+              <li>Leaf 101 sends LLDP back to APIC</li>
+              <li>Both devices learn each other's identity and capabilities</li>
+            </ul>
+            <p class="mt-1 font-mono text-xs" style="color: var(--text-faint)">Protocol: LLDP</p>
+          </div>
+
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <h3 class="font-bold mb-1" style="color: var(--accent)">2. Leaf Requests TEP IP (DHCP)</h3>
+            <ul style="color: var(--text-muted)">
+              <li>Leaf 101 sends DHCP Discover to APIC</li>
+              <li>APIC acts as DHCP server, offers TEP IP from configured pool</li>
+            </ul>
+            <p class="mt-1 font-mono text-xs" style="color: var(--text-faint)">Protocol: DHCP</p>
+          </div>
+
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <h3 class="font-bold mb-1" style="color: var(--accent)">3. TEP Assignment &amp; Leaf Becomes Active</h3>
+            <ul style="color: var(--text-muted)">
+              <li>APIC assigns TEP IP (<code>10.0.0.101</code>) to Leaf 101</li>
+              <li>TCP/SSL session is established</li>
+              <li>Leaf 101 becomes ACTIVE</li>
+            </ul>
+          </div>
+
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <h3 class="font-bold mb-1" style="color: var(--accent)">4. Leaf Discovers Spine (LLDP)</h3>
+            <ul style="color: var(--text-muted)">
+              <li>Leaf 101 sends LLDP to Spine 201</li>
+              <li>Spine 201 sends LLDP back</li>
+              <li>Leaf reports Spine 201 to APIC</li>
+            </ul>
+            <p class="mt-1 font-mono text-xs" style="color: var(--text-faint)">Protocol: LLDP</p>
+          </div>
+
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <h3 class="font-bold mb-1" style="color: var(--accent)">5. Leaf Registration (Manual)</h3>
+            <ul style="color: var(--text-muted)">
+              <li>Leaf 101 appears in APIC GUI under "Nodes Pending Registration"</li>
+              <li>Admin assigns Node ID (101), Node Name, POD ID</li>
+            </ul>
+            <p class="mt-1 font-mono text-xs" style="color: var(--text-faint)">Manual Step</p>
+          </div>
+
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <h3 class="font-bold mb-1" style="color: var(--accent)">6. Spine Requests TEP IP via Leaf (DHCP Relay)</h3>
+            <ul style="color: var(--text-muted)">
+              <li>Spine 201 sends DHCP Discover to Leaf 101 (cannot reach APIC directly)</li>
+              <li>Leaf 101 relays DHCP to APIC</li>
+              <li>APIC offers TEP IP</li>
+            </ul>
+            <p class="mt-1 font-mono text-xs" style="color: var(--text-faint)">Protocol: DHCP (Relay)</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="isis-formation" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#isis-formation" class="hover-underline">IS-IS Formation (Automatic)</a>
+        </h2>
+        <div class="p-3 rounded-xl border-2 text-sm" style="background: var(--bg-card); border-color: var(--border)">
+          <ul style="color: var(--text-muted)">
+            <li>Once all nodes have TEP IPs, APIC automatically enables IS-IS (Level-2) on all switches</li>
+            <li>IS-IS adjacencies form over the Infra VLAN</li>
+          </ul>
+          <p class="font-bold mt-2 mb-1" style="color: var(--text)">Purpose:</p>
+          <ul style="color: var(--text-muted)">
+            <li>• Underlay routing</li>
+            <li>• TEP reachability</li>
+            <li>• APIC communication</li>
+          </ul>
+          <p class="mt-1 font-mono text-xs" style="color: var(--text-faint)">Protocol: IS-IS (Automatic)</p>
+        </div>
+      </div>
+
+      <div id="apic-cluster" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#apic-cluster" class="hover-underline">APIC Cluster Formation</a>
+        </h2>
+        <div class="space-y-3 text-sm">
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <h3 class="font-bold mb-1" style="color: var(--accent)">APIC-2 / APIC-3 Connect to Leaf</h3>
+            <ul style="color: var(--text-muted)">
+              <li>APIC-2 / APIC-3 connects to Leaf via LLDP</li>
+              <li>Leaf validates Appliance Vector (AV)</li>
+              <li>If AV matches, APIC is allowed to join</li>
+              <li>APICs sync database and policies</li>
+              <li>Status changes to "Fully Fit"</li>
+            </ul>
+          </div>
+
+          <h3 class="text-sm font-bold uppercase tracking-wide mt-4 mb-2" style="color: var(--accent)">Key Protocols Used</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            {[
+              { n: 'LLDP', d: 'Neighbor Discovery' },
+              { n: 'DHCP', d: 'TEP IP Assignment' },
+              { n: 'IS-IS', d: 'Underlay Routing' },
+              { n: 'TCP/SSL', d: 'Policy Communication' },
+              { n: 'VXLAN', d: 'Overlay Tunneling' },
+            ].map(p => (
+              <div class="p-2 rounded-xl border-2 text-center" style="background: var(--bg-card); border-color: var(--border)">
+                <p class="font-bold text-xs" style="color: var(--accent)">{p.n}</p>
+                <p class="text-xs" style="color: var(--text-muted)">{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div id="appliance-vector" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#appliance-vector" class="hover-underline">Appliance Vector (AV)</a>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="font-bold mb-1" style="color: var(--text)">What is AV?</p>
+            <p style="color: var(--text-muted)">A distributed database maintained by APICs containing fabric information.</p>
+            <p class="font-bold mt-2 mb-1" style="color: var(--text)">AV Contents</p>
+            <ul style="color: var(--text-muted)">
+              <li>• Fabric Name</li>
+              <li>• Fabric ID</li>
+              <li>• APIC IDs</li>
+              <li>• APIC UUIDs</li>
+              <li>• TEP Pool</li>
+              <li>• Cluster Size</li>
+              <li>• Other fabric parameters</li>
+            </ul>
+          </div>
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="font-bold mb-1" style="color: var(--text)">Purpose</p>
+            <ul style="color: var(--text-muted)">
+              <li>• Ensures only valid APICs join the fabric</li>
+              <li>• Prevents rogue or fake APICs</li>
+            </ul>
+            <p class="font-bold mt-2 mb-1" style="color: var(--text)">AV Check Parameters</p>
+            <ul style="color: var(--text-muted)">
+              <li>• Fabric Name</li>
+              <li>• APIC IDs</li>
+              <li>• UUIDs</li>
+              <li>• TEP Pool</li>
+              <li>• Cluster Size</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="verification" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#verification" class="hover-underline">Verification Commands</a>
+        </h2>
+        <div class="space-y-3 text-sm">
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="font-bold mb-1" style="color: var(--text)"><code>acidiag fnvread</code></p>
+            <p style="color: var(--text-muted)">Fabric Node Information</p>
+            <div class="mt-2 overflow-x-auto font-mono text-xs" style="color: var(--text-muted)">
+              <pre style="white-space: pre-wrap;">
+POD ID    NODE ID    NODE TYPE    IP ADDRESS      STATUS
+1         1          apic         10.0.0.1        active
+1         2          apic         10.0.0.2        active
+1         3          apic         10.0.0.3        active
+1         101        leaf         10.0.0.101      active
+1         102        leaf         10.0.0.102      active
+1         103        leaf         10.0.0.103      active
+1         104        leaf         10.0.0.104      active
+1         201        spine        10.0.0.201      active
+1         202        spine        10.0.0.202      active
+              </pre>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="font-bold mb-1" style="color: var(--text)"><code>acidiag avread</code></p>
+            <p style="color: var(--text-muted)">Appliance Vector Information</p>
+            <div class="mt-2 overflow-x-auto font-mono text-xs" style="color: var(--text-muted)">
+              <pre style="white-space: pre-wrap;">
+Appliance Vector Summary
+Fabric Name:    ACI Fabric1
+Fabric ID:      1
+Cluster Size:   3
+APIC ID    UUID                             TEP           Status
+1          dia2.3b4c.5678.9101.21           10.0.0.1      active
+2          d1a2.4b5c.5678.9101.22           10.0.0.2      active
+3          d1a2.3b4c.5678.9101.23           10.0.0.3      active
+Status: Fully Fit
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="end-to-end" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#end-to-end" class="hover-underline">End-to-End Discovery Flow</a>
+        </h2>
+        <ol class="space-y-1 text-sm ml-4 list-decimal" style="color: var(--text-muted)">
+          <li>Configure APIC-1 (Setup Wizard)</li>
+          <li>APIC discovers first Leaf (LLDP)</li>
+          <li>Leaf requests TEP (DHCP)</li>
+          <li>Register Leaf, assign TEP</li>
+          <li>Leaf discovers Spine (LLDP)</li>
+          <li>Spine requests TEP (via Leaf DHCP relay)</li>
+          <li>Register Spine, assign TEP</li>
+          <li>Spines discover remaining Leafs</li>
+          <li>All nodes get TEPs</li>
+          <li>IS-IS adjacency forms</li>
+          <li>APIC-2 and APIC-3 join cluster</li>
+          <li>Fabric becomes fully operational</li>
+        </ol>
+      </div>
+
+      <div class="mt-16 p-4 rounded-xl border-2 text-center" style="background: var(--bg-card); border-color: var(--border)">
+        <p class="text-xs font-mono" style="color: var(--text-faint)">
+          All configurations (IS-IS, DHCP, etc.) are automatic — pushed by APIC. Never connect Leaf-to-Leaf or Spine-to-Spine.
+        </p>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="/" class="inline-block px-6 py-3 font-bold uppercase tracking-wide text-sm border-2 transition-all" style="background: var(--accent); color: #1a1a1a; border-color: #1a1a1a; box-shadow: 4px 4px 0 #1a1a1a; border-radius: 9999px">
+          ← all cheatsheets
+        </a>
+      </div>
+    </div>
+  </main>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.talz.net" },
+      { "@type": "ListItem", "position": 2, "name": "Cheatsheets", "item": "https://www.talz.net/cheatsheet/" },
+      { "@type": "ListItem", "position": 3, "name": "ACI Fabric Discovery Cheatsheet", "item": "https://www.talz.net/cheatsheet/aci-fabric-discovery/" }
+    ]
+  })} />
+</Layout>

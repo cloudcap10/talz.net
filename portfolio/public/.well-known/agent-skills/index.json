@@ -5,55 +5,67 @@
       "name": "eigrp-cheatsheet",
       "type": "reference",
       "description": "Comprehensive EIGRP study guide covering components, DUAL algorithm, metrics, configuration commands, neighbor states, and interview questions.",
-      "url": "https://talz.net/cheatsheet/eigrp/"
+      "url": "https://www.talz.net/cheatsheet/eigrp/"
     },
     {
       "name": "ospf-cheatsheet",
       "type": "reference",
       "description": "OSPF routing protocol deep reference including areas, LSA types, DR/BDR election, cost calculation, neighbor states, and configuration.",
-      "url": "https://talz.net/cheatsheet/ospf/"
+      "url": "https://www.talz.net/cheatsheet/ospf/"
     },
     {
       "name": "bgp-cheatsheet",
       "type": "reference",
       "description": "BGP study guide covering path attributes, best path selection algorithm, states, policy control, and eBGP/iBGP differences.",
-      "url": "https://talz.net/cheatsheet/bgp/"
+      "url": "https://www.talz.net/cheatsheet/bgp/"
     },
     {
       "name": "datacenter-cheatsheet",
       "type": "reference",
       "description": "Data center fundamentals: components, types, tiers, power/cooling, and key concepts for networking engineers.",
-      "url": "https://talz.net/cheatsheet/datacenter/"
+      "url": "https://www.talz.net/cheatsheet/datacenter/"
     },
     {
       "name": "fortigate-cheatsheet",
       "type": "reference",
       "description": "FortiGate NGFW core capabilities including security profiles, VPN, SD-WAN, segmentation, deployment modes, and traffic flow.",
-      "url": "https://talz.net/cheatsheet/fortigate/"
+      "url": "https://www.talz.net/cheatsheet/fortigate/"
     },
     {
       "name": "cloud-certifications-cheatsheet",
       "type": "reference",
       "description": "Role-based cloud certification roadmap for 2026 covering DevOps, MLOps, Solutions Architect, AI Engineer, Security, SRE, and Platform Engineer paths.",
-      "url": "https://talz.net/cheatsheet/cloud-certifications/"
+      "url": "https://www.talz.net/cheatsheet/cloud-certifications/"
     },
     {
       "name": "windows-networking-cheatsheet",
       "type": "reference",
       "description": "Essential Windows CLI networking commands: ipconfig, nslookup, ping, tracert, pathping, netstat, arp, and troubleshooting workflows.",
-      "url": "https://talz.net/cheatsheet/windows-networking/"
+      "url": "https://www.talz.net/cheatsheet/windows-networking/"
     },
     {
       "name": "vmware-vs-nutanix-cheatsheet",
       "type": "reference",
       "description": "Comparison of VMware virtualization and Nutanix hyperconverged infrastructure with strengths, feature table, and deployment guidance.",
-      "url": "https://talz.net/cheatsheet/vmware-vs-nutanix/"
+      "url": "https://www.talz.net/cheatsheet/vmware-vs-nutanix/"
     },
     {
       "name": "palo-alto-ngfw-cheatsheet",
       "type": "reference",
       "description": "Palo Alto Next-Generation Firewall study guide covering App-ID, User-ID, Content-ID, threat prevention, SSL decryption, and NGFW vs traditional firewall comparison.",
-      "url": "https://talz.net/cheatsheet/palo-alto/"
+      "url": "https://www.talz.net/cheatsheet/palo-alto/"
+    },
+    {
+      "name": "aci-fabric-discovery-cheatsheet",
+      "type": "reference",
+      "description": "Cisco ACI fabric discovery process including APIC setup, LLDP neighbor discovery, DHCP TEP assignment, IS-IS underlay routing, Appliance Vector, and cluster formation.",
+      "url": "https://www.talz.net/cheatsheet/aci-fabric-discovery/"
+    },
+    {
+      "name": "vpn-types-cheatsheet",
+      "type": "reference",
+      "description": "Six VPN types explained: Remote Access, Site-to-Site, Cloud VPN, Mobile VPN, SSL/TLS VPN, and Split Tunneling with use cases and strengths.",
+      "url": "https://www.talz.net/cheatsheet/vpn-types/"
     }
   ]
 }

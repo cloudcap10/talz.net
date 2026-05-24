@@ -6,7 +6,7 @@ interface Props {
   description: string;
 }
 const { title, description } = Astro.props;
-const SITE_URL = 'https://talz.net';
+const SITE_URL = 'https://www.talz.net';
 ---
 
 <!DOCTYPE html>
@@ -41,6 +41,8 @@ const SITE_URL = 'https://talz.net';
           { topic: 'Windows Networking', path: '/cheatsheet/windows-networking/', desc: 'Windows CLI — ipconfig, ping, tracert, netstat, arp' },
           { topic: 'VMware vs Nutanix', path: '/cheatsheet/vmware-vs-nutanix/', desc: 'VMware vs Nutanix — virtualization vs HCI comparison' },
           { topic: 'Palo Alto NGFW', path: '/cheatsheet/palo-alto/', desc: 'Palo Alto NGFW — App-ID, User-ID, threat prevention' },
+          { topic: 'ACI Fabric Discovery', path: '/cheatsheet/aci-fabric-discovery/', desc: 'Cisco ACI — APIC setup, LLDP, DHCP TEP, IS-IS, cluster formation' },
+          { topic: 'VPN Types', path: '/cheatsheet/vpn-types/', desc: '6 VPN types — Remote Access, Site-to-Site, Cloud, Mobile, SSL/TLS, Split Tunnel' },
         ];
 
         const mc = navigator.modelContext;
@@ -60,7 +62,7 @@ const SITE_URL = 'https://talz.net';
               const q = (args.query || '').toLowerCase();
               return CHEATSHEETS.filter(c =>
                 c.topic.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q)
-              ).map(c => ({ title: c.topic, url: 'https://talz.net' + c.path, summary: c.desc }));
+              ).map(c => ({ title: c.topic, url: 'https://www.talz.net' + c.path, summary: c.desc }));
             },
           }, { signal: abort.signal });
         }
