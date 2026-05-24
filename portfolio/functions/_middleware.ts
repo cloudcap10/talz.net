@@ -17,9 +17,12 @@ export const onRequest: PagesFunction = async ({ request, next }) => {
   const response = await next();
   const headers = new Headers(response.headers);
   headers.append('Link', '</.well-known/api-catalog>; rel="api-catalog"');
+  headers.append('Link', '</.well-known/openid-configuration>; rel="openid-configuration"');
+  headers.append('Link', '</.well-known/oauth-authorization-server>; rel="oauth-authorization-server"');
+  headers.append('Link', '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"');
   headers.append('Link', '</.well-known/agent-skills/index.json>; rel="agent-skills"');
   headers.append('Link', '</.well-known/mcp/server-card.json>; rel="mcp-server"');
-  headers.append('Link', '</sitemap.xml>; rel="sitemap"');
+  headers.append('Link', '</sitemap-index.xml>; rel="sitemap"');
   return new Response(response.body, { status: response.status, headers });
 };
 

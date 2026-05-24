@@ -31,35 +31,33 @@ const SITE_URL = 'https://talz.net';
     <slot />
     <script>
       if (typeof navigator !== 'undefined' && 'modelContext' in navigator) {
+        const CHEATSHEETS = [
+          { topic: 'EIGRP', path: '/cheatsheet/eigrp/', desc: 'Cisco EIGRP — DUAL algorithm, metrics, configuration' },
+          { topic: 'OSPF', path: '/cheatsheet/ospf/', desc: 'OSPF — areas, LSA types, DR/BDR, cost calculation' },
+          { topic: 'BGP', path: '/cheatsheet/bgp/', desc: 'BGP — path attributes, best path selection, states' },
+          { topic: 'Data Center', path: '/cheatsheet/datacenter/', desc: 'Data center fundamentals — components, tiers, cooling' },
+          { topic: 'FortiGate', path: '/cheatsheet/fortigate/', desc: 'FortiGate NGFW — security, VPN, SD-WAN, traffic flow' },
+          { topic: 'Cloud Certifications', path: '/cheatsheet/cloud-certifications/', desc: 'Cloud certification roadmap 2026 — DevOps, AI, Security' },
+          { topic: 'Windows Networking', path: '/cheatsheet/windows-networking/', desc: 'Windows CLI — ipconfig, ping, tracert, netstat, arp' },
+          { topic: 'VMware vs Nutanix', path: '/cheatsheet/vmware-vs-nutanix/', desc: 'VMware vs Nutanix — virtualization vs HCI comparison' },
+          { topic: 'Palo Alto NGFW', path: '/cheatsheet/palo-alto/', desc: 'Palo Alto NGFW — App-ID, User-ID, threat prevention' },
+        ];
+
         navigator.modelContext.provideContext({
-          schema: {
+          name: 'searchCheatsheets',
+          description: 'Search networking and infrastructure cheatsheets by topic keyword',
+          inputSchema: {
             type: 'object',
             properties: {
-              cheatsheets: {
-                type: 'array',
-                description: 'Networking and infrastructure cheatsheets available on this site',
-                items: {
-                  type: 'object',
-                  properties: {
-                    topic: { type: 'string', description: 'The topic name (e.g. EIGRP, OSPF, BGP)' },
-                    path: { type: 'string', description: 'URL path to the cheatsheet' },
-                  },
-                },
-              },
+              query: { type: 'string', description: 'Topic to search for (e.g. routing, firewall, cloud)' },
             },
+            required: ['query'],
           },
-          data: {
-            cheatsheets: [
-              { topic: 'EIGRP', path: '/cheatsheet/eigrp/' },
-              { topic: 'OSPF', path: '/cheatsheet/ospf/' },
-              { topic: 'BGP', path: '/cheatsheet/bgp/' },
-              { topic: 'Data Center', path: '/cheatsheet/datacenter/' },
-              { topic: 'FortiGate', path: '/cheatsheet/fortigate/' },
-              { topic: 'Cloud Certifications', path: '/cheatsheet/cloud-certifications/' },
-              { topic: 'Windows Networking', path: '/cheatsheet/windows-networking/' },
-              { topic: 'VMware vs Nutanix', path: '/cheatsheet/vmware-vs-nutanix/' },
-              { topic: 'Palo Alto NGFW', path: '/cheatsheet/palo-alto/' },
-            ],
+          execute: async (args) => {
+            const q = (args.query || '').toLowerCase();
+            return CHEATSHEETS.filter(c =>
+              c.topic.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q)
+            ).map(c => ({ title: c.topic, url: c.path, summary: c.desc }));
           },
         });
       }
