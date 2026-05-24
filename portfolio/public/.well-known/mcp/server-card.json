@@ -1,0 +1,29 @@
+{
+  "serverInfo": {
+    "name": "talz-net",
+    "version": "1.0.0"
+  },
+  "capabilities": {
+    "tools": {
+      "searchCheatsheets": {
+        "description": "Search through networking and infrastructure cheatsheets by topic",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "topic": { "type": "string", "description": "Search term to find matching cheatsheets" }
+          }
+        }
+      },
+      "getPageContent": {
+        "description": "Retrieve the full content of any page on the site",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": { "type": "string", "description": "URL path (e.g. /cheatsheet/eigrp)" }
+          },
+          "required": ["path"]
+        }
+      }
+    }
+  }
+}

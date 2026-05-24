@@ -29,6 +29,41 @@ const SITE_URL = 'https://talz.net';
   </head>
   <body>
     <slot />
+    <script>
+      if (typeof navigator !== 'undefined' && 'modelContext' in navigator) {
+        navigator.modelContext.provideContext({
+          schema: {
+            type: 'object',
+            properties: {
+              cheatsheets: {
+                type: 'array',
+                description: 'Networking and infrastructure cheatsheets available on this site',
+                items: {
+                  type: 'object',
+                  properties: {
+                    topic: { type: 'string', description: 'The topic name (e.g. EIGRP, OSPF, BGP)' },
+                    path: { type: 'string', description: 'URL path to the cheatsheet' },
+                  },
+                },
+              },
+            },
+          },
+          data: {
+            cheatsheets: [
+              { topic: 'EIGRP', path: '/cheatsheet/eigrp/' },
+              { topic: 'OSPF', path: '/cheatsheet/ospf/' },
+              { topic: 'BGP', path: '/cheatsheet/bgp/' },
+              { topic: 'Data Center', path: '/cheatsheet/datacenter/' },
+              { topic: 'FortiGate', path: '/cheatsheet/fortigate/' },
+              { topic: 'Cloud Certifications', path: '/cheatsheet/cloud-certifications/' },
+              { topic: 'Windows Networking', path: '/cheatsheet/windows-networking/' },
+              { topic: 'VMware vs Nutanix', path: '/cheatsheet/vmware-vs-nutanix/' },
+              { topic: 'Palo Alto NGFW', path: '/cheatsheet/palo-alto/' },
+            ],
+          },
+        });
+      }
+    </script>
   </body>
 </html>
 <style is:global>

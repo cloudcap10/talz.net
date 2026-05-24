@@ -1,0 +1,172 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const SECTIONS = [
+  { id: 'what-is-ngfw', title: 'What is NGFW?' },
+  { id: 'key-features', title: 'Key Features' },
+  { id: 'how-it-works', title: 'How It Works' },
+  { id: 'benefits', title: 'Benefits' },
+  { id: 'vs-traditional', title: 'NGFW vs Traditional Firewall' },
+];
+---
+
+<Layout title="Palo Alto NGFW Cheatsheet — Joven Talasan" description="Palo Alto Next-Generation Firewall core concepts: App-ID, User-ID, Content-ID, threat prevention, SSL decryption, and comparison with traditional firewalls.">
+  <main>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <a href="/cheatsheet" class="inline-flex items-center gap-1.5 text-sm mb-8" style="color: var(--accent)">
+        ← back to cheatsheets
+      </a>
+
+      <div class="flex items-center gap-4 mb-2">
+        <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style="background: var(--accent); color: #1a1a1a">Security</span>
+      </div>
+
+      <h1 class="font-black uppercase tracking-tight mb-2" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 0.95">
+        Palo Alto <span style="color: var(--accent)">NGFW</span>
+      </h1>
+      <p class="text-sm mb-6" style="color: var(--text-muted)">Next-Generation Firewall — App-ID, User-ID, Content-ID, and advanced threat prevention.</p>
+
+      <div class="flex flex-wrap gap-2 mb-8 text-xs font-mono" style="color: var(--text-faint)">
+        <span>6 min read</span>
+        <span>•</span>
+        <span>5 sections</span>
+      </div>
+
+      <ul class="flex flex-wrap gap-2 mb-10 text-xs font-mono">
+        {SECTIONS.map(s => (
+          <li>
+            <a href={"#" + s.id} class="px-3 py-1.5 rounded-full border transition-colors" style="border-color: var(--border); color: var(--text-muted)">
+              {s.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div id="what-is-ngfw" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#what-is-ngfw" class="hover-underline">What is NGFW?</a>
+        </h2>
+        <p class="text-sm leading-relaxed" style="color: var(--text-muted)">
+          A Next-Generation Firewall (NGFW) is an advanced firewall that provides more than a
+          traditional firewall. It goes beyond simple IP, port, and protocol filtering and provides
+          deep visibility, threat prevention, and control over applications, users, and content.
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="font-bold mb-1" style="color: var(--text)">Next Generation Firewall</p>
+            <ul class="space-y-1" style="color: var(--text-muted)">
+              <li>Works on Application, User, Content, Threat</li>
+              <li>Deep visibility of applications and users</li>
+              <li>Identifies and controls applications (App-ID)</li>
+              <li>Advanced threat prevention (IPS, Malware, URL filtering)</li>
+              <li>SSL inspection to see inside encrypted traffic</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="key-features" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#key-features" class="hover-underline">Key Features of Palo Alto NGFW</a>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          {[
+            { t: 'App-ID', d: 'Identifies applications regardless of port or protocol.' },
+            { t: 'User-ID', d: 'Identifies users and applies security policies based on identity.' },
+            { t: 'Content-ID', d: 'Controls content (URLs, files, data) based on policies.' },
+            { t: 'Threat Prevention', d: 'IPS, Anti-malware, Vulnerability protection, and more.' },
+            { t: 'WildFire', d: 'Detects unknown threats using cloud-based sandboxing.' },
+            { t: 'SSL Decryption', d: 'Decrypts SSL/TLS traffic to inspect for hidden threats.' },
+            { t: 'Logging & Reporting', d: 'Provides detailed logs and reports for visibility and compliance.' },
+          ].map(f => (
+            <div class="p-3 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="font-bold mb-1" style="color: var(--accent)">{f.t}</p>
+              <p style="color: var(--text-muted)">{f.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div id="how-it-works" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#how-it-works" class="hover-underline">How NGFW Works (Palo Alto)</a>
+        </h2>
+        <div class="text-sm p-4 rounded-xl border-2 font-mono leading-relaxed" style="background: var(--bg-card); border-color: var(--border); color: var(--text-muted)">
+          <div style="color: var(--text)">Traffic → Palo Alto NGFW:</div>
+          <ol class="space-y-1 mt-2 ml-4 list-decimal">
+            <li>Identifies Application (App-ID)</li>
+            <li>Identifies User (User-ID)</li>
+            <li>Checks Content (Content-ID)</li>
+            <li>Threat Prevention (IPS, AV, etc.)</li>
+            <li>Decrypts SSL (if needed)</li>
+            <li>Applies Security Policy</li>
+            <li>Allows or Blocks Traffic</li>
+          </ol>
+          <div class="mt-3" style="color: var(--accent)">→ Secure Traffic</div>
+        </div>
+        <p class="text-sm mt-4 leading-relaxed" style="color: var(--text-muted)">
+          Palo Alto NGFW not only allows or blocks traffic, but also understands what the traffic is,
+          who the user is, and whether it is safe or dangerous. That's why it is a Next Generation Firewall.
+        </p>
+      </div>
+
+      <div id="benefits" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#benefits" class="hover-underline">Benefits</a>
+        </h2>
+        <ul class="space-y-1 text-sm" style="color: var(--text-muted)">
+          <li>✓ Better visibility and control</li>
+          <li>✓ Stops advanced threats</li>
+          <li>✓ Improves security posture</li>
+          <li>✓ Supports Zero Trust Security</li>
+          <li>✓ Protects users, applications and data</li>
+        </ul>
+      </div>
+
+      <div id="vs-traditional" class="mb-12">
+        <h2 class="text-xl font-black uppercase tracking-wide mb-3" style="color: var(--text)">
+          <a href="#vs-traditional" class="hover-underline">NGFW vs Traditional Firewall</a>
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="text-left font-mono text-xs uppercase tracking-wider">
+                <th class="p-3 border font-bold" style="border-color: var(--border); color: var(--text)">Aspect</th>
+                <th class="p-3 border font-bold" style="border-color: var(--border); color: var(--text)">Traditional Firewall</th>
+                <th class="p-3 border font-bold" style="border-color: var(--border); color: var(--text)">NGFW (Palo Alto)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="p-3 border font-medium" style="border-color: var(--border); color: var(--text)">Works on</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">IP, Port, Protocol</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">Application, User, Content, Threat</td></tr>
+              <tr><td class="p-3 border font-medium" style="border-color: var(--border); color: var(--text)">Visibility</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">Limited</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">Deep application & user visibility</td></tr>
+              <tr><td class="p-3 border font-medium" style="border-color: var(--border); color: var(--text)">Application Awareness</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">No awareness of applications</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">Full App-ID identification</td></tr>
+              <tr><td class="p-3 border font-medium" style="border-color: var(--border); color: var(--text)">Security</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">Basic (port/protocol blocking)</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">Advanced (IPS, Anti-malware, WildFire)</td></tr>
+              <tr><td class="p-3 border font-medium" style="border-color: var(--border); color: var(--text)">Encrypted Traffic</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">Cannot see inside</td><td class="p-3 border" style="border-color: var(--border); color: var(--text-muted)">SSL decryption & inspection</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mt-16 p-4 rounded-xl border-2 text-center" style="background: var(--bg-card); border-color: var(--border)">
+        <p class="text-xs font-mono" style="color: var(--text-faint)">
+          Palo Alto NGFW not only allows or blocks traffic — it understands what the traffic is, who the user is, and whether it is safe or dangerous.
+        </p>
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="/" class="inline-block px-6 py-3 font-bold uppercase tracking-wide text-sm border-2 transition-all" style="background: var(--accent); color: #1a1a1a; border-color: #1a1a1a; box-shadow: 4px 4px 0 #1a1a1a; border-radius: 9999px">
+          ← all cheatsheets
+        </a>
+      </div>
+    </div>
+  </main>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://talz.net" },
+      { "@type": "ListItem", "position": 2, "name": "Cheatsheets", "item": "https://talz.net/cheatsheet/" },
+      { "@type": "ListItem", "position": 3, "name": "Palo Alto NGFW Cheatsheet", "item": "https://talz.net/cheatsheet/palo-alto/" }
+    ]
+  })} />
+</Layout>
