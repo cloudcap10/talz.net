@@ -1,0 +1,255 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const SECTIONS = [
+  { id: 'what-it-does', title: 'What FortiGate Does' },
+  { id: 'security', title: 'Security' },
+  { id: 'networking', title: 'Networking' },
+  { id: 'connectivity', title: 'Connectivity' },
+  { id: 'visibility', title: 'Control & Visibility' },
+  { id: 'deployment', title: 'Deployment Modes' },
+  { id: 'traffic-flow', title: 'Traffic Flow' },
+  { id: 'use-cases', title: 'Use Cases' },
+];
+---
+
+<Layout title="FortiGate Cheatsheet — Joven Talasan" description="Fortinet FortiGate core capabilities — security, networking, VPN, SD-WAN, segmentation, and deployment modes.">
+  <main>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <a href="/cheatsheet" class="inline-flex items-center gap-1.5 text-sm mb-8" style="color: var(--accent)">
+        ← back to cheatsheets
+      </a>
+
+      <h1 class="font-black uppercase tracking-tight mb-2" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 0.95">
+        Forti<span style="color: var(--accent)">Gate</span>
+      </h1>
+      <p class="text-sm mb-10 max-w-xl" style="color: var(--text-muted); line-height: 1.7">
+        Fortinet NGFW — traffic control, threat prevention, VPN, SD-WAN, segmentation, and visibility in a single platform.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-12">
+        {SECTIONS.map(s => (
+          <a href={s.id} class="text-xs px-3 py-1 rounded-full font-mono transition-colors" style="background: var(--bg-surface); color: var(--text-muted)">
+            {s.title}
+          </a>
+        ))}
+      </div>
+
+      <div class="flex flex-col gap-10">
+
+        <section id="what-it-does">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">1. What FortiGate Actually Does</h2>
+          <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-sm font-semibold mb-3" style="color: var(--text)">Traffic Control, Threat Prevention, VPN, SD-WAN, Segmentation & Visibility</p>
+            <pre class="font-mono text-xs leading-relaxed" style="color: var(--text-muted)">Remote User ──┐
+              ├── Internet ── ISP/Edge Router ── WAN1 (Primary)
+Branch Office ─┘                                    WAN2 (Secondary)
+                                                        │
+                                              FortiGate NGFW HA Cluster
+                                              FG-1 (Active) ←→ FG-2 (Passive)
+                                                        │
+                                              Core Switch / Distribution Layer
+                                              ├── Users VLAN (10.10.10.0/24)
+                                              ├── Servers VLAN (10.10.20.0/24)
+                                              ├── Apps VLAN (10.10.30.0/24)
+                                              ├── Database VLAN (10.10.40.0/24)
+                                              ├── Mgmt VLAN (10.10.99.0/24)
+                                              └── DMZ (172.16.10.0/24)</pre>
+          </div>
+        </section>
+
+        <section id="security">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">2. Security Capabilities</h2>
+          <div class="rounded-xl border-2 overflow-hidden" style="background: var(--bg-card); border-color: var(--border)">
+            <table class="w-full text-sm">
+              <thead>
+                <tr style="background: var(--bg-surface); border-bottom: 1px solid var(--border)">
+                  <th class="text-left px-4 py-2.5 font-semibold">Capability</th>
+                  <th class="text-left px-4 py-2.5 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Stateful Firewall</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Tracks connections and sessions</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">IPS</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Intrusion Prevention System</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Antivirus</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Malware prevention</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Web Filtering</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Controls web access</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Application Control</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Identifies and controls apps (L7)</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">SSL/TLS Inspection</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Decrypts and inspects encrypted traffic</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">DNS Filtering</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Blocks malicious DNS queries</td></tr>
+                <tr><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Threat Intelligence</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Real-time threat feeds</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="networking">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">3. Networking Capabilities</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <ul class="text-sm space-y-1.5" style="color: var(--text-muted)">
+                <li>• Routing (static &amp; dynamic)</li>
+                <li>• NAT</li>
+                <li>• VLANs</li>
+                <li>• SD-WAN</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <ul class="text-sm space-y-1.5" style="color: var(--text-muted)">
+                <li>• High Availability (HA)</li>
+                <li>• Policy-Based Routing</li>
+                <li>• Traffic Shaping</li>
+                <li>• Multi-WAN</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="connectivity">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">4. Connectivity Capabilities</h2>
+          <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <ul class="text-sm space-y-1.5" style="color: var(--text-muted)">
+              <li>• <strong style="color: var(--text)">SSL VPN</strong> — Secure remote access via browser</li>
+              <li>• <strong style="color: var(--text)">IPsec VPN</strong> — Site-to-site VPN</li>
+              <li>• <strong style="color: var(--text)">Site-to-Site VPN</strong> — Branch connectivity</li>
+              <li>• <strong style="color: var(--text)">Remote Access VPN</strong> — User remote access</li>
+              <li>• <strong style="color: var(--text)">Branch Connectivity</strong> — Secure branch links via SD-WAN</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="visibility">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">5. Control & Visibility</h2>
+          <div class="rounded-xl border-2 overflow-hidden" style="background: var(--bg-card); border-color: var(--border)">
+            <table class="w-full text-sm">
+              <thead>
+                <tr style="background: var(--bg-surface); border-bottom: 1px solid var(--border)">
+                  <th class="text-left px-4 py-2.5 font-semibold">Capability</th>
+                  <th class="text-left px-4 py-2.5 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Firewall Policies</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Traffic rules and policies</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">User Identity Policies</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Identity-based access control</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Logging</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Traffic and event logging</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">Monitoring</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Real-time monitoring</td></tr>
+                <tr><td class="px-4 py-2.5 font-mono text-xs" style="color: var(--text)">FortiAnalyzer / SOC</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Centralized logging and SIEM integration</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="deployment">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">6. Deployment Modes</h2>
+          <div class="rounded-xl border-2 overflow-hidden" style="background: var(--bg-card); border-color: var(--border)">
+            <table class="w-full text-sm">
+              <thead>
+                <tr style="background: var(--bg-surface); border-bottom: 1px solid var(--border)">
+                  <th class="text-left px-4 py-2.5 font-semibold">Mode</th>
+                  <th class="text-left px-4 py-2.5 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">L2 Transparent</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Inline bridge deployment (Layer 2 forwarding)</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">L3 Routed</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Default enterprise deployment (Layer 3 routing)</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">L4 Stateful</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Tracks connections and sessions (TCP/UDP/ICMP)</td></tr>
+                <tr><td class="px-4 py-2.5 font-mono" style="color: var(--text)">L7 Application</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Identifies and controls apps (HTTP, DNS, FTP, etc.)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-xs mt-2" style="color: var(--text-faint)">Deployment mode and inspection capability are not the same thing.</p>
+        </section>
+
+        <section id="traffic-flow">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">7. Traffic Flow — Central Enforcement</h2>
+
+          <div class="p-4 rounded-xl border-2 mb-4" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Decision Pipeline</p>
+            <pre class="font-mono text-xs leading-relaxed" style="color: var(--text-muted)">Identify → Inspect → Apply Policy → Allow/Block → Route → Log</pre>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Internet-bound Traffic</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">User Traffic → Identify → Inspect → Apply Policy → Allow/Block → Route (NAT, IPS)</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Inbound Services</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">Internet → DNAT/VIP → IPS → Security Profiles → Allowed Traffic</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Remote Access VPN</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">Remote User → SSL/IPsec VPN → Auth → Internal Resource Access</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Branch SD-WAN</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">Branch → IPsec VPN/SD-WAN → Path Selection → Secure Connect</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Internal Segmentation</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">VLAN → Inter-VLAN Policy → East-West Inspection → Allow/Block</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Security Operations</p>
+              <p class="text-xs leading-relaxed" style="color: var(--text-muted)">All Traffic → Logs → SOC/SIEM/FortiAnalyzer</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="use-cases">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">8. Why Enterprises Use FortiGate</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Centralized Traffic Control</p>
+              <p class="text-xs" style="color: var(--text-muted)">Single platform for all traffic decisions</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Reduces Attack Surface</p>
+              <p class="text-xs" style="color: var(--text-muted)">Unified threat prevention</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Secure Remote Access</p>
+              <p class="text-xs" style="color: var(--text-muted)">SSL/IPsec VPN for remote users</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Branch Connectivity</p>
+              <p class="text-xs" style="color: var(--text-muted)">SD-WAN connects remote sites</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Better App Visibility</p>
+              <p class="text-xs" style="color: var(--text-muted)">L7 application awareness</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Segmented Network</p>
+              <p class="text-xs" style="color: var(--text-muted)">VLANs and micro-segmentation</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Faster Threat Detection</p>
+              <p class="text-xs" style="color: var(--text-muted)">Real-time IPS and threat intel</p>
+            </div>
+            <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+              <p class="text-sm font-semibold mb-1" style="color: var(--text)">Operational Efficiency</p>
+              <p class="text-xs" style="color: var(--text-muted)">Centralized management and logging</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Common Misunderstandings</p>
+            <ul class="text-xs space-y-1" style="color: var(--text-muted)">
+              <li>• FortiGate is more than a port-based firewall.</li>
+              <li>• Transparent mode does not mean only Layer 2 inspection.</li>
+              <li>• VPN, SD-WAN, IPS, and segmentation can be part of the same platform.</li>
+              <li>• Security policy design matters more than just enabling features.</li>
+            </ul>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="/cheatsheet" class="inline-block px-6 py-3 font-bold uppercase tracking-wide text-sm border-2 transition-all" style="background: var(--accent); color: #1a1a1a; border-color: #1a1a1a; box-shadow: 4px 4px 0 #1a1a1a; border-radius: 9999px">
+          ← all cheatsheets
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>
