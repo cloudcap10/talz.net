@@ -1,0 +1,152 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const SECTIONS = [
+  { id: 'what-is', title: 'What is a Data Center?' },
+  { id: 'components', title: 'Main Components' },
+  { id: 'types', title: 'Types' },
+  { id: 'importance', title: 'Why Important' },
+  { id: 'interview', title: 'Interview Questions' },
+];
+---
+
+<Layout title="Data Center Cheatsheet — Joven Talasan" description="Data center fundamentals covering components, types, and key concepts for networking engineers.">
+  <main>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <a href="/cheatsheet" class="inline-flex items-center gap-1.5 text-sm mb-8" style="color: var(--accent)">
+        ← back to cheatsheets
+      </a>
+
+      <h1 class="font-black uppercase tracking-tight mb-2" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 0.95">
+        Data<br>
+        <span style="color: var(--accent)">Center</span>
+      </h1>
+      <p class="text-sm mb-10 max-w-xl" style="color: var(--text-muted); line-height: 1.7">
+        Facilities that store, manage and process critical IT infrastructure — the backbone of today's digital world.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mb-12">
+        {SECTIONS.map(s => (
+          <a href={s.id} class="text-xs px-3 py-1 rounded-full font-mono transition-colors" style="background: var(--bg-surface); color: var(--text-muted)">
+            {s.title}
+          </a>
+        ))}
+      </div>
+
+      <div class="flex flex-col gap-10">
+
+        <section id="what-is">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">1. What is a Data Center?</h2>
+          <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-sm leading-relaxed" style="color: var(--text-muted)">
+              A Data Center is a facility that stores, manages and processes critical IT infrastructure and
+              business applications. Data Centers are the backbone of today's digital world.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border-2 mt-4" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Simple Diagram</p>
+            <pre class="font-mono text-xs leading-relaxed" style="color: var(--text-muted)">Users → Internet → Data Center
+                     ├── Network Devices
+                     ├── Servers
+                     ├── Storage
+                     └── Security</pre>
+          </div>
+        </section>
+
+        <section id="components">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">2. Main Components</h2>
+          <div class="rounded-xl border-2 overflow-hidden" style="background: var(--bg-card); border-color: var(--border)">
+            <table class="w-full text-sm">
+              <thead>
+                <tr style="background: var(--bg-surface); border-bottom: 1px solid var(--border)">
+                  <th class="text-left px-4 py-2.5 font-semibold">Component</th>
+                  <th class="text-left px-4 py-2.5 font-semibold">Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Servers</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Process applications and store data</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Switches & Routers</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Network connectivity between devices</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Storage Systems</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Databases, files, backups, VMs</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Security Devices</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Protect against threats and unauthorized access</td></tr>
+                <tr><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Power & Cooling</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Ensure uninterrupted 24×7 operations</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex gap-4 mt-4">
+            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: var(--accent-glow); color: var(--accent)">Redundancy</span>
+            <span class="text-xs px-3 py-1 rounded-full font-mono" style="background: var(--accent-glow); color: var(--accent)">Security</span>
+          </div>
+        </section>
+
+        <section id="types">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">3. Types of Data Centers</h2>
+          <div class="rounded-xl border-2 overflow-hidden" style="background: var(--bg-card); border-color: var(--border)">
+            <table class="w-full text-sm">
+              <thead>
+                <tr style="background: var(--bg-surface); border-bottom: 1px solid var(--border)">
+                  <th class="text-left px-4 py-2.5 font-semibold">Type</th>
+                  <th class="text-left px-4 py-2.5 font-semibold">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Enterprise</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Owned and managed by organizations</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Colocation</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Companies rent space for servers and networking equipment</td></tr>
+                <tr style="border-bottom: 1px solid var(--border)"><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Cloud</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Managed by cloud providers (AWS, Azure, GCP)</td></tr>
+                <tr><td class="px-4 py-2.5 font-mono" style="color: var(--text)">Edge</td><td class="px-4 py-2.5" style="color: var(--text-muted)">Located closer to users for low latency</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="importance">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">4. Why Data Centers Are Important</h2>
+          <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <ul class="text-sm leading-relaxed space-y-1.5" style="color: var(--text-muted)">
+              <li>• High Availability</li>
+              <li>• Fast Data Processing</li>
+              <li>• Business Continuity</li>
+              <li>• Disaster Recovery</li>
+              <li>• Secure Data Storage</li>
+              <li>• Scalability for Future Growth</li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl border-2 mt-4" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Real-World Example</p>
+            <p class="text-sm leading-relaxed" style="color: var(--text-muted)">
+              When you watch videos on YouTube, send messages on WhatsApp, or store files on cloud drives
+              — all data is processed and stored in massive data centers.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl border-2 mt-4" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-xs font-semibold uppercase tracking-wide mb-2" style="color: var(--accent)">Quick Tip for Networking Engineers</p>
+            <p class="text-sm mb-2" style="color: var(--text-muted)">A modern data center mainly focuses on:</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style="background: var(--bg-surface); color: var(--text-muted)">Virtualization</span>
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style="background: var(--bg-surface); color: var(--text-muted)">Automation</span>
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style="background: var(--bg-surface); color: var(--text-muted)">High-speed networking</span>
+              <span class="text-xs px-2.5 py-1 rounded-full font-mono" style="background: var(--bg-surface); color: var(--text-muted)">Cloud integration</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="interview">
+          <h2 class="font-black uppercase tracking-tight text-xl mb-3">5. Interview Question</h2>
+          <div class="p-4 rounded-xl border-2" style="background: var(--bg-card); border-color: var(--border)">
+            <p class="text-sm mb-2" style="color: var(--text-muted)"><strong style="color: var(--text)">Q:</strong> What is the primary purpose of a data center?</p>
+            <p class="text-sm" style="color: var(--text-muted)"><strong style="color: var(--text)">A:</strong> To provide centralized computing, storage, networking and application services reliably and securely.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="mt-8 text-center">
+        <a href="/cheatsheet" class="inline-block px-6 py-3 font-bold uppercase tracking-wide text-sm border-2 transition-all" style="background: var(--accent); color: #1a1a1a; border-color: #1a1a1a; box-shadow: 4px 4px 0 #1a1a1a; border-radius: 9999px">
+          ← all cheatsheets
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,75 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+const CHEATSHEETS = [
+  {
+    title: 'EIGRP',
+    subtitle: 'Enhanced Interior Gateway Routing Protocol',
+    href: '/cheatsheet/eigrp',
+    desc: 'Cisco proprietary IGP using DUAL algorithm — components, metrics, timers, configuration, and interview questions.',
+    tags: ['Cisco', 'DUAL', 'IGP'],
+  },
+  {
+    title: 'OSPF',
+    subtitle: 'Open Shortest Path First',
+    href: '/cheatsheet/ospf',
+    desc: 'Link-State IGP using Dijkstra\'s SPF — areas, LSA types, DR/BDR, cost calculation, and configuration.',
+    tags: ['Open Standard', 'SPF', 'IGP'],
+  },
+  {
+    title: 'BGP',
+    subtitle: 'Border Gateway Protocol',
+    href: '/cheatsheet/bgp',
+    desc: 'Path Vector protocol for Internet routing — attributes, best path selection, states, and policies.',
+    tags: ['Exterior', 'Path Vector', 'Internet'],
+  },
+  {
+    title: 'Data Center',
+    subtitle: 'Facilities & Infrastructure',
+    href: '/cheatsheet/datacenter',
+    desc: 'Data center fundamentals — components, types, importance, and key concepts for networking engineers.',
+    tags: ['Infrastructure', 'Virtualization', 'Cloud'],
+  },
+];
+---
+
+<Layout title="Cheatsheets — Joven Talasan" description="Networking study guides and cheatsheets by Joven Talasan.">
+  <main>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <a href="/" class="inline-flex items-center gap-1.5 text-sm mb-8" style="color: var(--accent)">
+        ← back to portfolio
+      </a>
+
+      <h1 class="font-black uppercase tracking-tight mb-2" style="font-size: clamp(2rem, 4vw, 3rem); line-height: 0.95">
+        Cheat<span style="color: var(--accent)">sheets</span>
+      </h1>
+      <p class="text-sm mb-10 max-w-xl" style="color: var(--text-muted); line-height: 1.7">
+        Networking protocol study guides — from CCNP-level notes formatted for quick reference.
+      </p>
+
+      <div class="flex flex-col gap-4">
+        {CHEATSHEETS.map(cs => (
+          <a href={cs.href} class="p-5 rounded-xl border-2 transition-all" style="background: var(--bg-card); border-color: var(--border)">
+            <div class="flex items-start gap-3">
+              <div class="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 font-black uppercase" style="background: var(--bg-surface); color: var(--accent); font-size: 14px">
+                {cs.title.slice(0, 4)}
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h2 class="font-bold text-base">{cs.title}</h2>
+                  <span class="text-xs" style="color: var(--text-muted)">{cs.subtitle}</span>
+                </div>
+                <p class="text-sm mt-1 leading-relaxed" style="color: var(--text-muted)">{cs.desc}</p>
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                  {cs.tags.map(tag => (
+                    <span class="text-xs px-2 py-0.5 rounded-full font-mono" style="background: var(--bg-surface); color: var(--text-muted)">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
