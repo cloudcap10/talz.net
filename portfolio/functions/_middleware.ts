@@ -1,4 +1,4 @@
-export const onRequest: PagesFunction = async ({ request, next }) => {
+export async function onRequest({ request, next }) {
   const accept = request.headers.get('Accept') || '';
 
   if (accept.includes('text/markdown')) {

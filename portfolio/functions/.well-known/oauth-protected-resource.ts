@@ -1,4 +1,4 @@
-export const onRequest: PagesFunction = async () => {
+export async function onRequest() {
   const body = {
     resource: 'https://talz.net',
     authorization_servers: ['https://github.com/login/oauth'],
