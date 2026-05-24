@@ -66,6 +66,12 @@
       "type": "reference",
       "description": "Six VPN types explained: Remote Access, Site-to-Site, Cloud VPN, Mobile VPN, SSL/TLS VPN, and Split Tunneling with use cases and strengths.",
       "url": "https://www.talz.net/cheatsheet/vpn-types/"
+    },
+    {
+      "name": "linux-commands-cheatsheet",
+      "type": "reference",
+      "description": "50 most used Linux commands for DevOps and Cloud Engineers covering navigation, file operations, networking, processes, permissions, compression, and shell productivity tips.",
+      "url": "https://www.talz.net/cheatsheet/linux-commands/"
     }
   ]
 }
