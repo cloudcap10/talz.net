@@ -32,9 +32,16 @@ export default function Nav() {
     <nav className="brutal-border-thin border-t-0 border-x-0 bg-main sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl sm:text-2xl font-bold tracking-tight">
-              talz.net
+          <Link href="/" className="flex items-center gap-2.5" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="110 90 180 95" aria-hidden="true">
+              <ellipse cx="205" cy="167" rx="92" ry="11" fill="#c0392b"/>
+              <path d="M134 167 q0 -67 71 -67 q71 0 71 67 z" fill="#e74c3c"/>
+              <path d="M276 167 q14 -2 28 5 q-14 9 -28 9 z" fill="#c0392b"/>
+              <circle cx="205" cy="105" r="6" fill="#c0392b"/>
+              <text x="205" y="156" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="32" fontWeight="800" fill="#ffffff">10</text>
+            </svg>
+            <span className="hidden sm:inline font-mono text-sm font-bold tracking-tight">
+              cloudcap10
             </span>
           </Link>
 
