@@ -4,81 +4,91 @@ import { motion } from 'framer-motion';
 
 const SKILLS = [
   {
-    category: 'network_engineering',
-    color: '#2e6ea0',
+    category: 'Network Engineering',
+    color: 'bg-brutal-blue/20',
+    borderColor: 'border-brutal-blue',
     items: ['Cisco IOS', 'Alcatel-Lucent', 'Aruba', 'BGP / OSPF', 'Network Automation', 'Python Netmiko'],
   },
   {
-    category: 'development',
-    color: '#7c4dbb',
+    category: 'Development',
+    color: 'bg-brutal-purple/20',
+    borderColor: 'border-brutal-purple',
     items: ['TypeScript', 'Python', 'Next.js', 'React', 'Tailwind CSS', 'REST APIs'],
   },
   {
-    category: 'infrastructure',
-    color: '#8a5c10',
+    category: 'Infrastructure',
+    color: 'bg-brutal-orange/20',
+    borderColor: 'border-brutal-orange',
     items: ['Cloudflare Workers', 'D1 / R2 / KV', 'Vercel', 'Docker', 'Linux'],
   },
   {
-    category: 'security',
-    color: '#1d8a5c',
+    category: 'Security',
+    color: 'bg-brutal-green/20',
+    borderColor: 'border-brutal-green',
     items: ['Zero-knowledge encryption', 'AES-256-GCM', 'JWT / OAuth2', 'Network hardening', 'EOL / CVE tracking'],
   },
 ];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="px-4 pb-24">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
-        >
-          <div className="prompt-line">
-            <span className="prompt-user">cloudcap10@talz</span>
-            <span className="prompt-sep">:</span>
-            <span className="prompt-path">~</span>
-            <span className="prompt-dollar">$ </span>
-            <span>cat skills.yaml</span>
-            <span className="cursor" />
-          </div>
+    <section id="about" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="mb-8 flex items-center gap-4">
+          <span className="brutal-border bg-brutal-purple px-4 py-2 font-bold text-lg">About</span>
+          <span className="text-sm opacity-60">Skills and expertise</span>
+        </div>
 
-          <p className="text-sm mb-6 max-w-xl" style={{ color: 'var(--text-muted)', lineHeight: 1.75 }}>
+        <div className="brutal-border bg-white p-8 brutal-shadow-lg mb-8">
+          <p className="text-base leading-relaxed max-w-3xl">
             Network engineer by trade, builder by habit. I automate the repetitive parts of
             network operations and build tools that help teams stay on top of their
-            infrastructure.
+            infrastructure. From <strong>Cisco IOS configs</strong> to <strong>Cloudflare Workers</strong>,
+            I bridge the gap between traditional networking and modern software.
           </p>
+        </div>
+      </motion.div>
 
-          <div className="yaml-block" style={{ background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}>
-            <div className="p-5">
-              <div className="yaml-comment"># skills inventory — cloudcap10</div>
-              {SKILLS.map((skill, i) => (
-                <motion.div
-                  key={skill.category}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="yaml-block"
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-50px' }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 },
+          },
+        }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        {SKILLS.map((skill) => (
+          <motion.div
+            key={skill.category}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+            }}
+            className={`brutal-border ${skill.color} p-6 brutal-shadow brutal-hover`}
+          >
+            <h3 className="font-bold text-lg mb-4">{skill.category}</h3>
+            <div className="flex flex-wrap gap-2">
+              {skill.items.map((item) => (
+                <span
+                  key={item}
+                  className="brutal-border-thin bg-white px-3 py-1 text-sm font-semibold"
                 >
-                  <div style={{ marginTop: '6px' }}>
-                    <span className="yaml-key">{skill.category}:</span>
-                  </div>
-                  <div className="indent">
-                    {skill.items.map((item) => (
-                      <div key={item}>
-                        <span className="yaml-list-item">-</span>
-                        <span className="yaml-value" style={{ marginLeft: '4px' }}>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
+                  {item}
+                </span>
               ))}
             </div>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }

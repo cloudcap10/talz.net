@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono, Onest } from 'next/font/google';
+import { JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { cn } from "@/lib/utils";
 
-const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
-const onest = Onest({ subsets: ['latin'], variable: '--font-sans' });
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+  weight: ['400', '500', '600', '700'],
+});
 
 const SITE_URL = 'https://talz.net';
 
@@ -48,27 +52,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn("font-sans", mono.variable, onest.variable)}>
+    <html lang="en" className={cn("font-sans h-full", mono.variable, spaceGrotesk.variable)}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="canonical" href={SITE_URL} />
       </head>
-      <body>
+      <body className="min-h-full flex flex-col">
         <TooltipProvider>
           <Nav />
-          <main>{children}</main>
-          <footer
-            className="text-center py-8 font-mono text-[10px]"
-            style={{ borderTop: '1px solid var(--border-subtle)', color: 'var(--text-faint)' }}
-          >
-            <p>
+          <main className="flex-1">{children}</main>
+          <footer className="brutal-border-thin border-x-0 border-b-0 py-6 text-center">
+            <p className="font-mono text-xs font-semibold">
               built by{' '}
               <a
                 href="https://github.com/cloudcap10"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: 'var(--accent)' }}
-                className="hover:opacity-80 transition-opacity"
+                className="text-brutal-blue hover:underline"
               >
                 Joven Talasan
               </a>
