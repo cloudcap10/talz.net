@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               >
                 Joven Talasan
               </a>
-              {' '}· talz.net
+              {' '}❤ from Singapore
             </p>
           </footer>
         </TooltipProvider>
