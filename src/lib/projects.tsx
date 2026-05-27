@@ -53,7 +53,7 @@ export const PROJECTS: Project[] = [
     bgColor: 'rgba(124,77,187,0.08)',
     borderColor: 'rgba(124,77,187,0.18)',
     fallbackDescription:
-      'One page instead of 20 browser tabs. Compare AI models by context window, price per token, and benchmark scores. YAML-driven so the data stays current without a full rebuild.',
+      'Compare AI models by context window, price per token, and benchmark scores on one page. YAML-driven so the data stays current without a full rebuild.',
   },
   {
     id: 'traefikgen',

@@ -47,8 +47,8 @@ export default function AboutSection() {
           <p className="text-base leading-relaxed max-w-3xl">
             Network engineer by trade, builder by habit. I automate the repetitive parts of
             network operations and build tools that help teams stay on top of their
-            infrastructure. From <strong>Cisco IOS configs</strong> to <strong>Cloudflare Workers</strong>,
-            I bridge the gap between traditional networking and modern software.
+            infrastructure.             From <strong>Cisco IOS configs</strong> to <strong>Cloudflare Workers</strong>,
+            I connect traditional networking with modern software.
           </p>
         </div>
       </motion.div>

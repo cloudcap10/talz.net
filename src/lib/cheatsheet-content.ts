@@ -292,7 +292,7 @@ const bgp: CheatsheetContent = [
 
 const datacenter: CheatsheetContent = [
   { type: 'h2', text: '1. What is a Data Center?' },
-  { type: 'p', text: 'A facility that stores, manages and processes critical IT infrastructure and business applications. The backbone of today\'s digital world.' },
+  { type: 'p', text: 'A facility that stores, manages and processes critical IT infrastructure and business applications.' },
   { type: 'code', text: 'Users → Internet → Data Center\n                 ├── Network Devices\n                 ├── Servers\n                 ├── Storage\n                 └── Security' },
 
   { type: 'h2', text: '2. Main Components' },
@@ -319,7 +319,7 @@ const datacenter: CheatsheetContent = [
 
 const fortigate: CheatsheetContent = [
   { type: 'h2', text: '1. What FortiGate Does' },
-  { type: 'p', text: '**Traffic Control, Threat Prevention, VPN, SD-WAN, Segmentation & Visibility** — all in a single platform.' },
+  { type: 'p', text: '**Traffic Control, Threat Prevention, VPN, SD-WAN, Segmentation & Visibility** on a single platform.' },
   { type: 'code', text: 'Remote User ──┐\n              ├── Internet ── ISP/Edge Router ── WAN1 (Primary)\nBranch Office ─┘                                    WAN2 (Secondary)\n                                                        │\n                                              FortiGate NGFW HA Cluster\n                                              FG-1 (Active) ←→ FG-2 (Passive)\n                                                        │\n                                              Core Switch / Distribution Layer\n                                              ├── Users VLAN\n                                              ├── Servers VLAN\n                                              ├── DMZ' },
 
   { type: 'h2', text: '2. Security Capabilities' },
@@ -463,7 +463,7 @@ const windowsNetworking: CheatsheetContent = [
   { type: 'code', text: 'C:\\> ping 8.8.8.8' },
 
   { type: 'h2', text: 'tracert' },
-  { type: 'p', text: 'Identifies the path packets take to reach the destination. Excellent for locating where the issue exists.' },
+  { type: 'p', text: 'Identifies the path packets take to reach the destination — pinpoints where packets drop.' },
   { type: 'code', text: 'C:\\> tracert google.com' },
 
   { type: 'h2', text: 'pathping' },
@@ -497,11 +497,11 @@ const windowsNetworking: CheatsheetContent = [
 
 const vmwareNutanix: CheatsheetContent = [
   { type: 'h2', text: '1. What is VMware?' },
-  { type: 'p', text: 'VMware focuses on **virtualization**. Technologies like ESXi, vCenter, vMotion, HA, DRS, and FT. The backbone of enterprise virtualization — stable, mature, and trusted worldwide.' },
+  { type: 'p', text: 'VMware focuses on **virtualization** — ESXi, vCenter, vMotion, HA, DRS, FT. The standard for enterprise virtualization.' },
   { type: 'callout', label: 'Summary', text: 'VMware = Strong virtualization platform' },
 
   { type: 'h2', text: '2. What is Nutanix?' },
-  { type: 'p', text: 'Nutanix focuses on **hyperconverged infrastructure (HCI)**. Combines compute, storage, and virtualization into a single software-defined platform. Simple deployment, centralized management, easier scalability.' },
+  { type: 'p', text: 'Nutanix focuses on **hyperconverged infrastructure (HCI)**. Combines compute, storage, and virtualization into a single software-defined platform — deploy in hours, manage from one console, scale out node by node.' },
   { type: 'callout', label: 'Summary', text: 'Nutanix = Complete infrastructure platform with built-in simplicity' },
 
   { type: 'h2', text: '3. VMware Strengths' },
@@ -521,7 +521,7 @@ const vmwareNutanix: CheatsheetContent = [
     ['Best For', 'Large enterprise virtualization', 'Modern HCI and simplified ops'],
   ]},
 
-  { type: 'h2', text: '6. Which One Is Better?' },
+  { type: 'h2', text: '6. How to Choose' },
   { type: 'grid', items: [
     { label: 'Choose VMware if…', text: 'Your org already has a strong VMware ecosystem and traditional infrastructure.' },
     { label: 'Choose Nutanix if…', text: 'You want simplified ops, faster scaling, and modern HCI for greenfield deployments.' },
@@ -530,7 +530,7 @@ const vmwareNutanix: CheatsheetContent = [
 
 const paloAlto: CheatsheetContent = [
   { type: 'h2', text: '1. What is NGFW?' },
-  { type: 'p', text: 'A Next-Generation Firewall provides more than traditional firewalls. Goes beyond IP/port/protocol filtering with deep visibility, threat prevention, and control over **applications, users, and content**.' },
+  { type: 'p', text: 'A Next-Generation Firewall identifies applications, users, and content — not just IPs, ports, and protocols.' },
 
   { type: 'h2', text: '2. Key Features' },
   { type: 'grid', items: [
@@ -611,27 +611,27 @@ const aciFabric: CheatsheetContent = [
 
 const vpnTypes: CheatsheetContent = [
   { type: 'h2', text: '1. Remote Access VPN' },
-  { type: 'p', text: 'Connects individual users to a private network from a remote location. **Most common type** — used by remote employees.' },
+  { type: 'p', text: 'Connects individual users to a private network from a remote location. Used by remote employees.' },
   { type: 'code', text: 'Remote User → Internet → Company Network' },
 
   { type: 'h2', text: '2. Site-to-Site VPN' },
-  { type: 'p', text: 'Links two or more entire office networks together over the internet. **Ideal for multi-branch enterprises** — no per-user setup needed.' },
+  { type: 'p', text: 'Links two or more entire office networks together over the internet. No per-user setup needed.' },
   { type: 'code', text: 'Office A → Internet → Office B' },
 
   { type: 'h2', text: '3. Cloud VPN' },
-  { type: 'p', text: 'Secures connections between users/offices and cloud platforms. **A must-have** as businesses move workloads off on-prem.' },
+  { type: 'p', text: 'Secures connections between users/offices and cloud platforms. Essential as businesses move workloads off on-prem.' },
   { type: 'code', text: 'Users/Offices → Internet → Cloud Platforms (AWS, Azure, GCP)' },
 
   { type: 'h2', text: '4. Mobile VPN' },
-  { type: 'p', text: 'Maintains a stable encrypted tunnel even when devices switch networks (WiFi → 4G → 5G). **Perfect for field workers and first responders**.' },
+  { type: 'p', text: 'Maintains a stable encrypted tunnel even when devices switch networks (WiFi → 4G → 5G). For field workers and first responders.' },
   { type: 'code', text: 'Mobile User (WiFi/4G/5G) → Internet → Company Network' },
 
   { type: 'h2', text: '5. SSL/TLS VPN' },
-  { type: 'p', text: 'Runs entirely through a web browser using HTTPS — **no software installation required**. Perfect for contractors or BYOD environments.' },
+  { type: 'p', text: 'Runs entirely through a web browser using HTTPS — no software installation required. For contractors or BYOD environments.' },
   { type: 'code', text: 'Web Browser → HTTPS → Company Network' },
 
   { type: 'h2', text: '6. Split Tunnel VPN' },
-  { type: 'p', text: 'Routes only specific traffic through the VPN; the rest goes through regular internet. **Smarter routing, better performance**.' },
+  { type: 'p', text: 'Routes only specific traffic through the VPN; the rest goes through regular internet. Work traffic stays encrypted, browsing stays fast.' },
   { type: 'code', text: 'Work Traffic → VPN | Other Traffic → Internet' },
 ];
 

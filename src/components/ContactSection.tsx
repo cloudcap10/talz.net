@@ -24,8 +24,8 @@ export default function ContactSection() {
 
         <div className="brutal-border bg-white p-8 brutal-shadow-lg">
           <p className="text-base mb-6 max-w-xl" style={{ lineHeight: 1.75 }}>
-            Got a project in mind, need help with network automation, or just want to chat about infrastructure?
-            Reach out through any of these channels.
+            Got a project in mind, need help with network automation, or want to talk infrastructure?
+            Reach out — links below.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
