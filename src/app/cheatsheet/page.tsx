@@ -28,8 +28,8 @@ export default function CheatsheetIndex() {
           <Link key={cs.slug} href={`/cheatsheet/${cs.slug}`}>
             <div className="brutal-border bg-white brutal-shadow brutal-hover h-full flex flex-col">
               <div className={`${cs.color} brutal-border-thin border-t-0 border-x-0 px-5 py-3 flex items-center justify-between`}>
-                <span className="font-bold text-sm">{cs.title}</span>
-                <span className="font-mono text-xs font-bold uppercase">{cs.subtitle}</span>
+                <span className="font-bold text-sm" style={{ color: '#ffffff' }}>{cs.title}</span>
+                <span className="font-mono text-xs font-bold uppercase" style={{ color: '#ffffff' }}>{cs.subtitle}</span>
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <p className="text-sm opacity-75 flex-1 mb-4">{cs.description}</p>

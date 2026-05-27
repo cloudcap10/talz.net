@@ -77,8 +77,8 @@ export default function ProjectGrid({ projects }: { projects: ProjectData[] }) {
             >
               <div className="brutal-border bg-white brutal-shadow brutal-hover h-full flex flex-col">
                 <div className={`${bgColor} brutal-border-thin border-t-0 border-x-0 px-5 py-3 flex items-center justify-between`}>
-                  <HugeiconsIcon icon={icon} size={18} color="#1a1a1a" />
-                  <span className="font-mono text-xs font-bold uppercase">{project.tagline}</span>
+                  <HugeiconsIcon icon={icon} size={18} color="#ffffff" />
+                  <span className="font-mono text-xs font-bold uppercase" style={{ color: '#ffffff' }}>{project.tagline}</span>
                 </div>
 
                 <div className="p-5 flex flex-col flex-1">
@@ -114,6 +114,7 @@ export default function ProjectGrid({ projects }: { projects: ProjectData[] }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`brutal-border-thin ${bgColor} px-3 py-1.5 text-xs font-bold brutal-shadow-sm brutal-hover inline-block`}
+                        style={{ color: '#ffffff' }}
                       >
                         Live Demo →
                       </a>

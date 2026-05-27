@@ -58,17 +58,17 @@ export default function PortfolioHero() {
                 <span className="inline-block w-2 h-4 bg-brutal-yellow ml-1 animate-pulse" />
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-3 text-white">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-3" style={{ color: '#ffffff' }}>
                 JOVEN TALASAN
               </h1>
 
-              <p className="font-mono text-sm font-medium mb-5 text-gray-400">
+              <p className="font-mono text-sm font-medium mb-5" style={{ color: '#9ca3af' }}>
                 network engineer who ships software
               </p>
 
-              <p className="text-sm mb-6 max-w-xl text-gray-300 leading-relaxed">
+              <p className="text-sm mb-6 max-w-xl leading-relaxed" style={{ color: '#d1d5db' }}>
                 I automate what network engineers do by hand and build the tools that keep
-                infrastructure <strong className="text-white">visible, secure, and under control</strong>.
+                infrastructure <strong style={{ color: '#ffffff' }}>visible, secure, and under control</strong>.
               </p>
 
               <div className="font-mono text-sm text-gray-400 mb-6">
