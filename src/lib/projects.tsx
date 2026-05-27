@@ -28,18 +28,18 @@ export const PROJECTS: Project[] = [
       "Files are encrypted before they leave your browser — the server never sees the contents. AES-256-GCM, burn-after-reading, and password protection built on Cloudflare's global edge.",
   },
   {
-    id: 'network-automation',
-    name: 'Network Automation Script',
+    id: 'netpilot',
+    name: 'NetPilot',
     tagline: 'Multi-vendor network automation',
     repo: 'cloudcap10/netpilot',
     iconId: 'terminal',
-    stack: ['Python 3.10+', 'Cisco IOS', 'Alcatel', 'Aruba', 'IIS'],
+    stack: ['Python 3.10+', 'Cisco IOS', 'Alcatel AOS', 'Alcatel WLC', 'Netmiko'],
     live: 'https://netscript.talz.net',
     color: '#2e6ea0',
     bgColor: 'rgba(46,110,160,0.08)',
     borderColor: 'rgba(46,110,160,0.18)',
     fallbackDescription:
-      'Turns hours of manual CLI work into a scheduled job. Automatically backs up configs and tracks inventory across Cisco, Alcatel, and Aruba devices — with a web portal for reporting.',
+      'Push config to 1,000+ network devices in parallel via SSH. Supports Cisco IOS, Alcatel OmniSwitches, and WLCs — with auto-discovery, config backup, pre/post checks, retry logic, and CIS compliance.',
   },
   {
     id: 'pickmodel',

@@ -9,6 +9,7 @@ import { Mail01Icon } from '@hugeicons/core-free-icons';
 const NAV_LINKS = [
   { label: 'Projects', href: '/#projects' },
   { label: 'About', href: '/#about' },
+  { label: 'Cheatsheets', href: '/cheatsheet' },
   { label: 'Contact', href: '/#contact' },
 ];
 

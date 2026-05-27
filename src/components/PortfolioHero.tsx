@@ -41,23 +41,66 @@ export default function PortfolioHero() {
             <span className="font-mono text-sm font-bold">Network Engineer · Builder · Automator</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
-            Joven Talasan
-            <br />
-            <span className="bg-foreground text-brutal-blue px-3 inline-block mt-2">
-              cloudcap10
-            </span>
-          </h1>
+          <div className="brutal-border bg-foreground brutal-shadow-lg mb-8 max-w-3xl">
+            <div className="flex items-center px-4 py-2.5 border-b-3 border-foreground gap-2" style={{ borderBottom: '3px solid #1a1a1a', background: '#2a2a2a' }}>
+              <span className="w-3.5 h-3.5 rounded-full bg-[#ff5f56]" />
+              <span className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e]" />
+              <span className="w-3.5 h-3.5 rounded-full bg-[#27c93f]" />
+              <span className="ml-auto font-mono text-xs text-gray-400">zsh</span>
+            </div>
+            <div className="p-6 md:p-8">
+              <div className="font-mono text-sm text-gray-400 mb-4">
+                <span className="text-brutal-green">cloudcap10@talz</span>
+                <span className="text-gray-500">:</span>
+                <span className="text-brutal-cyan">~</span>
+                <span className="text-gray-500">$ </span>
+                <span className="text-white">cat profile</span>
+                <span className="inline-block w-2 h-4 bg-brutal-yellow ml-1 animate-pulse" />
+              </div>
 
-          <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl text-white">
-            I automate what network engineers do by hand and build the tools that keep
-            infrastructure <strong>visible, secure, and under control</strong>.
-          </p>
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-3 text-white">
+                JOVEN TALASAN
+              </h1>
 
-          <div className="flex flex-wrap gap-4 mb-12">
+              <p className="font-mono text-sm font-medium mb-5 text-gray-400">
+                network engineer who ships software
+              </p>
+
+              <p className="text-sm mb-6 max-w-xl text-gray-300 leading-relaxed">
+                I automate what network engineers do by hand and build the tools that keep
+                infrastructure <strong className="text-white">visible, secure, and under control</strong>.
+              </p>
+
+              <div className="font-mono text-sm text-gray-400 mb-6">
+                <span className="text-brutal-green">cloudcap10@talz</span>
+                <span className="text-gray-500">:</span>
+                <span className="text-brutal-cyan">~</span>
+                <span className="text-gray-500">$ </span>
+                <span className="text-white">ls stats/</span>
+              </div>
+
+              <div className="flex gap-3 flex-wrap">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="brutal-border bg-white px-4 py-3 text-center brutal-shadow-sm"
+                  >
+                    <div className="font-mono text-xl font-bold text-foreground">
+                      {stat.value}
+                    </div>
+                    <div className="font-mono text-[10px] uppercase text-gray-500">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-4">
             <a
               href="#contact"
-              className="brutal-border bg-foreground text-brutal-blue px-6 py-3 font-bold text-lg brutal-shadow brutal-hover inline-flex items-center gap-2"
+              className="brutal-border bg-brutal-yellow text-foreground px-6 py-3 font-bold text-lg brutal-shadow brutal-hover inline-flex items-center gap-2"
             >
               <HugeiconsIcon icon={Mail01Icon} size={18} />
               Contact Me
@@ -86,21 +129,6 @@ export default function PortfolioHero() {
               <LinkedInIcon size={20} />
               LinkedIn
             </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.3 }}
-                className={`brutal-border ${stat.color} p-6 brutal-shadow text-center bg-white`}
-              >
-                <div className="text-4xl font-bold">{stat.value}</div>
-                <div className="text-sm font-medium mt-1 uppercase">{stat.label}</div>
-              </motion.div>
-            ))}
           </div>
         </motion.div>
       </div>

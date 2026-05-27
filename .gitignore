@@ -42,9 +42,14 @@ yarn-error.log*
 # brainstorming / visual companion
 .superpowers/
 
-# astro
-portfolio/.astro/
-portfolio/dist/
+# tooling artifacts
+.commandcode/
+.claude/
+test-results/
+docs/superpowers/
+
+# old astro portfolio
+portfolio/
 
 # typescript
 *.tsbuildinfo
