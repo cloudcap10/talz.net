@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
     repo: 'cloudcap10/netpilot',
     iconId: 'terminal',
     stack: ['Python 3.10+', 'Cisco IOS', 'Alcatel AOS', 'Alcatel WLC', 'Netmiko'],
-    live: 'https://netscript.talz.net',
+    live: 'https://cloudcap10.github.io/netpilot/',
     color: '#2e6ea0',
     bgColor: 'rgba(46,110,160,0.08)',
     borderColor: 'rgba(46,110,160,0.18)',
