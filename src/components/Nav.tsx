@@ -29,7 +29,7 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="brutal-border-thin border-t-0 border-x-0 bg-brutal-yellow sticky top-0 z-50">
+    <nav className="brutal-border-thin border-t-0 border-x-0 bg-main sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function Nav() {
               <a
                 key={href}
                 href={href}
-                className="px-3 py-1.5 font-semibold text-sm hover:bg-black hover:text-brutal-yellow transition-colors"
+                className="px-3 py-1.5 font-semibold text-sm hover:bg-black hover:text-main transition-colors"
               >
                 {label}
               </a>
@@ -78,14 +78,14 @@ export default function Nav() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden border-t-3 border-foreground bg-brutal-yellow pb-4 px-4">
+        <div className="md:hidden border-t-3 border-foreground bg-main pb-4 px-4">
           <div className="flex flex-col gap-1 pt-2">
             {NAV_LINKS.map(({ label, href }) => (
               <a
                 key={href}
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className="px-4 py-2.5 font-semibold text-sm hover:bg-black hover:text-brutal-yellow transition-colors"
+                className="px-4 py-2.5 font-semibold text-sm hover:bg-black hover:text-main transition-colors"
               >
                 {label}
               </a>

@@ -56,7 +56,7 @@ export default async function CheatsheetPage({ params }: Props) {
       <CheatsheetRenderer blocks={blocks} />
 
       <div className="mt-12 text-center">
-        <Link href="/cheatsheet" className="brutal-border bg-brutal-yellow px-6 py-3 font-bold brutal-shadow brutal-hover inline-block">
+        <Link href="/cheatsheet" className="brutal-border bg-main text-main-foreground px-6 py-3 font-bold brutal-shadow brutal-hover inline-block">
           ← all cheatsheets
         </Link>
       </div>

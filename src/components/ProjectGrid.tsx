@@ -19,7 +19,7 @@ const COLOR_MAP: Record<string, string> = {
   '#2e6ea0': 'bg-brutal-blue',
   '#7c4dbb': 'bg-brutal-purple',
   '#b45309': 'bg-brutal-orange',
-  '#8a5c10': 'bg-brutal-yellow',
+  '#8a5c10': 'bg-main',
   '#0369a1': 'bg-brutal-cyan',
   '#0d9488': 'bg-brutal-green',
 };

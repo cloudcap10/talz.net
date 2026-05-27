@@ -55,7 +55,7 @@ export default function PortfolioHero() {
                 <span className="text-brutal-cyan">~</span>
                 <span className="text-gray-500">$ </span>
                 <span className="text-white">cat profile</span>
-                <span className="inline-block w-2 h-4 bg-brutal-yellow ml-1 animate-pulse" />
+                <span className="inline-block w-2 h-4 bg-main ml-1 animate-pulse" />
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-3" style={{ color: '#ffffff' }}>
@@ -100,7 +100,7 @@ export default function PortfolioHero() {
           <div className="flex flex-wrap gap-4">
             <a
               href="#contact"
-              className="brutal-border bg-brutal-yellow text-foreground px-6 py-3 font-bold text-lg brutal-shadow brutal-hover inline-flex items-center gap-2"
+              className="brutal-border bg-main text-main-foreground px-6 py-3 font-bold text-lg brutal-shadow brutal-hover inline-flex items-center gap-2"
             >
               <HugeiconsIcon icon={Mail01Icon} size={18} />
               Contact Me

@@ -85,7 +85,7 @@ export default function CheatsheetRenderer({ blocks }: { blocks: Block[] }) {
               <div key={i} className="brutal-border bg-foreground brutal-shadow-sm">
                 {block.label && (
                   <div className="px-4 py-2 border-b-2 border-white/10">
-                    <span className="font-mono text-xs font-bold text-brutal-yellow">{block.label}</span>
+                    <span className="font-mono text-xs font-bold text-main">{block.label}</span>
                   </div>
                 )}
                 <pre className="p-4 text-xs leading-relaxed font-mono text-gray-300 overflow-x-auto whitespace-pre">
@@ -95,7 +95,7 @@ export default function CheatsheetRenderer({ blocks }: { blocks: Block[] }) {
             );
           case 'callout':
             return (
-              <div key={i} className="brutal-border bg-brutal-yellow/20 p-4 brutal-shadow-sm">
+              <div key={i} className="brutal-border bg-main/20 p-4 brutal-shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wide mb-1 text-foreground">{block.label}</p>
                 <p className="text-sm text-foreground/80"><Bold text={block.text} /></p>
               </div>
