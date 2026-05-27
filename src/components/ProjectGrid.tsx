@@ -113,8 +113,7 @@ export default function ProjectGrid({ projects }: { projects: ProjectData[] }) {
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`brutal-border-thin ${bgColor} px-3 py-1.5 text-xs font-bold brutal-shadow-sm brutal-hover inline-block`}
-                        style={{ color: '#ffffff' }}
+                        className="brutal-border-thin bg-foreground text-white px-3 py-1.5 text-xs font-bold brutal-shadow-sm brutal-hover inline-block"
                       >
                         Live Demo →
                       </a>
