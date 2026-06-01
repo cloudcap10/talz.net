@@ -45,9 +45,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -55,7 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={cn("font-sans h-full", mono.variable, spaceGrotesk.variable)}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="canonical" href={SITE_URL} />
       </head>
       <body className="min-h-full flex flex-col">
         <TooltipProvider>

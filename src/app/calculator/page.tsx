@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { loadModels } from '@/lib/data';
 import CostCalculator from '@/components/CostCalculator';
 
-const SITE_URL = 'https://pickmodel.uk';
+const SITE_URL = 'https://talz.net';
 
 export const metadata: Metadata = {
   title: 'AI API Cost Calculator — Compare Monthly Costs for Claude, GPT, Gemini & More',

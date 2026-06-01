@@ -13,13 +13,31 @@ export async function generateStaticParams() {
   return CHEATSHEETS.map((cs) => ({ slug: cs.slug }));
 }
 
+const SITE_URL = 'https://talz.net';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cs = CHEATSHEETS.find((c) => c.slug === slug);
   if (!cs) return { title: 'Not Found' };
+  const title = `${cs.title} Cheatsheet — ${cs.subtitle}`;
+  const url = `${SITE_URL}/cheatsheet/${cs.slug}`;
   return {
-    title: `${cs.title} Cheatsheet — Joven Talasan`,
+    title,
     description: cs.description,
+    keywords: [...cs.tags, cs.title, 'cheatsheet', 'network engineering', 'CCNA', 'CCNP'],
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description: cs.description,
+      url,
+      type: 'article',
+      images: [{ url: `${SITE_URL}/og.png`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: cs.description,
+    },
   };
 }
 
@@ -32,8 +50,24 @@ export default async function CheatsheetPage({ params }: Props) {
 
   const sections = blocks.filter((b) => b.type === 'h2').map((b) => b.text);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: `${cs.title} Cheatsheet — ${cs.subtitle}`,
+    description: cs.description,
+    keywords: cs.tags.join(', '),
+    url: `${SITE_URL}/cheatsheet/${cs.slug}`,
+    author: { '@type': 'Person', name: 'Joven Talasan', url: SITE_URL },
+    publisher: { '@type': 'Person', name: 'Joven Talasan', url: SITE_URL },
+    articleSection: sections,
+  };
+
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/cheatsheet" className="brutal-border bg-white inline-block px-4 py-2 font-bold text-sm brutal-shadow-sm brutal-hover mb-8">
         ← all cheatsheets
       </Link>

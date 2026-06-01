@@ -2,16 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Database, Users, RefreshCw, Code } from 'lucide-react';
 
+const SITE_URL = 'https://talz.net';
+
 export const metadata: Metadata = {
-  title: 'About PickModel — How We Compare AI Models',
+  title: 'About — Joven Talasan',
   description:
-    'PickModel is a free, open-source AI model comparison tool. Learn how our data is sourced, updated weekly, and how you can contribute new models or fix pricing.',
-  alternates: { canonical: 'https://pickmodel.uk/about' },
+    'Joven Talasan (cloudcap10) — network engineer building open-source tools for automation, security, and infrastructure. How this site works and how to contribute.',
+  alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
-    title: 'About PickModel — How We Compare AI Models',
+    title: 'About — Joven Talasan',
     description:
-      'Free, open-source AI model comparison. Community-maintained data updated weekly. Learn how to contribute.',
-    url: 'https://pickmodel.uk/about',
+      'Network engineer building open-source tools for automation, security, and infrastructure.',
+    url: `${SITE_URL}/about`,
     type: 'website',
   },
 };
