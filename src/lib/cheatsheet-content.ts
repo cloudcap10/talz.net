@@ -288,6 +288,21 @@ const bgp: CheatsheetContent = [
     ['Graceful Restart', 'Maintain forwarding during restart'],
     ['BGP Multipath', 'Multiple paths if equal cost'],
   ]},
+
+  { type: 'h2', text: '12. Traffic Engineering: AS Path Prepending vs Communities' },
+  { type: 'p', text: 'Both influence **inbound** traffic — the hard direction in BGP. You cannot set what neighbors prefer directly, only signal. Two main tools:' },
+  { type: 'table', headers: ['', 'AS Path Prepending', 'Communities'], rows: [
+    ['Mechanism', 'Pad own AS number to lengthen AS_PATH', 'Tag routes; upstream acts on tag'],
+    ['Best-path step', '4 (AS Path length)', 'Varies — often sets Local Pref (step 2)'],
+    ['Granularity', 'Blunt — affects all upstreams', 'Surgical — per-provider, per-route'],
+    ['Needs ISP support', 'No — works everywhere', 'Yes — ISP must define/honor community'],
+    ['Beaten by', 'Any upstream Local Pref override', 'Whatever the ISP policy dictates'],
+    ['Typical use', 'Make a path less preferred globally', 'Set Local Pref, prepend, or blackhole remotely'],
+  ]},
+  { type: 'p', text: '**Rule of thumb:** Prepending is a hammer, communities are a scalpel. Prepending is weak — it sits low in best-path selection, so any provider setting a higher Local Preference ignores it entirely. Communities let the provider apply policy on your behalf (often setting Local Pref), making them far more effective when supported.' },
+  { type: 'code', label: 'AS Path Prepending (make path less preferred)', text: 'route-map PREPEND-OUT permit 10\n set as-path prepend 65010 65010 65010\n!\nrouter bgp 65010\n neighbor 192.168.12.2 route-map PREPEND-OUT out' },
+  { type: 'code', label: 'Community tagging (RFC 1997 well-known + custom)', text: 'ip community-list 1 permit 65020:120\n!\nroute-map TAG-OUT permit 10\n set community 65020:120\n!\nrouter bgp 65010\n neighbor 192.168.12.2 send-community\n neighbor 192.168.12.2 route-map TAG-OUT out' },
+  { type: 'list', items: ['**Well-known communities:** NO_EXPORT (do not advertise outside AS), NO_ADVERTISE (do not advertise to any peer), LOCAL_AS, INTERNET', '**Format:** `ASN:value` (e.g. `65020:120` — ISP doc defines meaning)', '**Always** `send-community` to neighbor — not sent by default', 'Prepending own AS 1–3 times is typical; >3 often filtered as suspicious'] },
 ];
 
 const datacenter: CheatsheetContent = [
