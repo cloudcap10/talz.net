@@ -749,7 +749,10 @@ const linuxCommands: CheatsheetContent = [
   ]},
 ];
 
+import { MODERN_CONTENT } from './cheatsheet-content-modern';
+
 export const CONTENT: Record<string, CheatsheetContent> = {
+  ...MODERN_CONTENT,
   'eigrp': eigrp,
   'ospf': ospf,
   'bgp': bgp,
