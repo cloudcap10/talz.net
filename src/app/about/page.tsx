@@ -82,9 +82,9 @@ export default function AboutPage() {
       <div className="brutal-border bg-main p-8 brutal-shadow-lg">
         <h2 className="font-bold text-xl mb-2">Working with me</h2>
         <p className="text-sm leading-relaxed max-w-2xl mb-6">
-          I&apos;m open to network automation, NetDevOps, and infrastructure tooling work —
-          full-time roles or project engagements. The fastest way to reach me is email;
-          my code is all public on GitHub if you want to see how I work first.
+          Network automation, NetDevOps, and infrastructure tooling are what I do best.
+          The fastest way to reach me is email; my code is all public on GitHub if you
+          want to see how I work first.
         </p>
         <div className="flex flex-wrap gap-4">
           <a

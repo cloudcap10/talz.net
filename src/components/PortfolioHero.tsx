@@ -41,9 +41,8 @@ export default function PortfolioHero() {
             <div className="brutal-border bg-white inline-block px-3 py-1 brutal-shadow-sm">
               <span className="font-mono text-sm font-bold">Network Engineer · Builder · Automator</span>
             </div>
-            <div className="brutal-border bg-brutal-green inline-flex items-center gap-2 px-3 py-1 brutal-shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              <span className="font-mono text-sm font-bold text-white">Open to work · Singapore</span>
+            <div className="brutal-border bg-white inline-flex items-center gap-2 px-3 py-1 brutal-shadow-sm">
+              <span className="font-mono text-sm font-bold">📍 Singapore</span>
             </div>
           </div>
 
