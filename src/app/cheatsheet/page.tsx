@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: 'Networking, security, cloud, and infrastructure reference guides.',
     url: 'https://www.talz.net/cheatsheet',
     type: 'website',
+    images: [{ url: 'https://www.talz.net/og.png', width: 1200, height: 630 }],
   },
 };
 

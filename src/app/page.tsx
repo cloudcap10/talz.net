@@ -17,12 +17,14 @@ export const metadata: Metadata = {
       'Network engineer building open-source tools for automation, security, and infrastructure.',
     url: SITE_URL,
     type: 'website',
+    images: [{ url: `${SITE_URL}/og.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Joven Talasan — Network Engineer & Builder',
     description: 'Network engineer building open-source tools for automation, security, and infrastructure.',
     creator: '@cloudcapten',
+    images: [`${SITE_URL}/og.png`],
   },
 };
 

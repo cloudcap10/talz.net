@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       'Network engineer in Singapore building open-source tools for automation, security, and infrastructure.',
     url: `${SITE_URL}/about`,
     type: 'profile',
+    images: [{ url: `${SITE_URL}/og.png`, width: 1200, height: 630 }],
   },
 };
 
