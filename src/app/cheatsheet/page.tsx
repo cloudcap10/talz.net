@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: 'Cheatsheets — Joven Talasan',
   description: 'Networking, security, cloud, and infrastructure reference guides — EIGRP, OSPF, BGP, FortiGate, data center, and cloud certifications.',
   keywords: ['cheatsheet', 'networking', 'EIGRP', 'OSPF', 'BGP', 'FortiGate', 'CCNA', 'CCNP', 'network engineering'],
-  alternates: { canonical: 'https://talz.net/cheatsheet' },
+  alternates: { canonical: 'https://www.talz.net/cheatsheet' },
   openGraph: {
     title: 'Cheatsheets — Joven Talasan',
     description: 'Networking, security, cloud, and infrastructure reference guides.',
-    url: 'https://talz.net/cheatsheet',
+    url: 'https://www.talz.net/cheatsheet',
     type: 'website',
   },
 };

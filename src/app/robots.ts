@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://talz.net/sitemap.xml',
-    host: 'https://talz.net',
+    sitemap: 'https://www.talz.net/sitemap.xml',
+    host: 'https://www.talz.net',
   };
 }

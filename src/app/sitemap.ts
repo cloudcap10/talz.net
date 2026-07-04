@@ -4,7 +4,7 @@ import { loadModels } from '@/lib/data';
 
 export const dynamic = 'force-static';
 
-const SITE_URL = 'https://talz.net';
+const SITE_URL = 'https://www.talz.net';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

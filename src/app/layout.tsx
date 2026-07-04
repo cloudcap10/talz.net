@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ['400', '500', '600', '700'],
 });
 
-const SITE_URL = 'https://talz.net';
+const SITE_URL = 'https://www.talz.net';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

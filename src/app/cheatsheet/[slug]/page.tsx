@@ -13,7 +13,7 @@ export async function generateStaticParams() {
   return CHEATSHEETS.map((cs) => ({ slug: cs.slug }));
 }
 
-const SITE_URL = 'https://talz.net';
+const SITE_URL = 'https://www.talz.net';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

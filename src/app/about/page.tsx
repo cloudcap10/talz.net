@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Database, Users, RefreshCw, Code } from 'lucide-react';
 
-const SITE_URL = 'https://talz.net';
+const SITE_URL = 'https://www.talz.net';
 
 export const metadata: Metadata = {
   title: 'About — Joven Talasan',

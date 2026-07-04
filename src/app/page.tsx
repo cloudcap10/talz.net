@@ -4,7 +4,7 @@ import ProjectsSection from '@/components/ProjectsSection';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 
-const SITE_URL = 'https://talz.net';
+const SITE_URL = 'https://www.talz.net';
 
 export const metadata: Metadata = {
   title: 'Joven Talasan — Network Engineer & Builder',

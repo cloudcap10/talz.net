@@ -14,7 +14,7 @@ import {
 import { loadModels, getModelById } from '@/lib/data';
 import { formatContextWindow, formatPrice, getProviderColor, formatConsumerPlan, isNewModel } from '@/lib/utils';
 
-const SITE_URL = 'https://talz.net';
+const SITE_URL = 'https://www.talz.net';
 
 export async function generateStaticParams() {
   const models = loadModels();
