@@ -27,6 +27,22 @@
   --chart-4: #00D696;
   --chart-5: #0099FF;
   --chart-active-dot: #000;
+
+  /* Compat tokens for the models/calculator pages (pre-brutalism components) */
+  --text: #1a1a1a;
+  --text-muted: #4a4a42;
+  --text-faint: #77776b;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fffbe8;
+  --bg-surface: #f3f0e2;
+  --border-subtle: rgba(0, 0, 0, 0.14);
+  --divide-color: rgba(0, 0, 0, 0.08);
+  --accent: #8a5c10;
+  --accent-dim: #d9b23a;
+  --accent-glow: rgba(250, 204, 0, 0.15);
+  --green: #1d8a5c;
+  --blue: #2e6ea0;
+  --yellow: #8a5c10;
 }
 
 .dark {
@@ -52,6 +68,22 @@
   --chart-4: #00BD84;
   --chart-5: #008AE5;
   --chart-active-dot: #fff;
+
+  /* Compat tokens for the models/calculator pages (pre-brutalism components) */
+  --text: #ededed;
+  --text-muted: #b9b9ae;
+  --text-faint: #8b8b80;
+  --bg-card: #23231d;
+  --bg-card-hover: #2b2b24;
+  --bg-surface: #1d1d18;
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --divide-color: rgba(255, 255, 255, 0.08);
+  --accent: #facc00;
+  --accent-dim: #8a7410;
+  --accent-glow: rgba(250, 204, 0, 0.12);
+  --green: #33dd88;
+  --blue: #66aaff;
+  --yellow: #facc00;
 }
 
 @theme inline {
@@ -154,6 +186,68 @@ pre {
 
 code {
   font-family: var(--font-mono), monospace;
+}
+
+/* Compat classes for the models/calculator pages (pre-brutalism components) */
+.card-glow {
+  border-radius: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-glow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 0 var(--border);
+}
+
+.led-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--text-faint);
+}
+
+.led-dot.green {
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid var(--border-subtle);
+}
+
+.feature-tag {
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--divide-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card-glow,
+  .brutal-hover {
+    transition: none;
+  }
 }
 
 ::-webkit-scrollbar {

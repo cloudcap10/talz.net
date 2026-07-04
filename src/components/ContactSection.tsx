@@ -23,9 +23,12 @@ export default function ContactSection() {
         </div>
 
         <div className="brutal-border bg-white p-8 brutal-shadow-lg">
-          <p className="text-base mb-6 max-w-xl" style={{ lineHeight: 1.75 }}>
-            Got a project in mind, need help with network automation, or want to talk infrastructure?
-            Reach out — links below.
+          <p className="text-base mb-2 max-w-xl" style={{ lineHeight: 1.75 }}>
+            I&apos;m open to <strong>network automation, NetDevOps, and infrastructure tooling</strong> work —
+            full-time roles or project engagements, based in Singapore.
+          </p>
+          <p className="text-sm mb-6 max-w-xl opacity-70">
+            Email is fastest — I reply within a day.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -37,8 +37,14 @@ export default function PortfolioHero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <div className="brutal-border bg-white inline-block px-3 py-1 mb-6 brutal-shadow-sm">
-            <span className="font-mono text-sm font-bold">Network Engineer · Builder · Automator</span>
+          <div className="flex flex-wrap gap-3 mb-6">
+            <div className="brutal-border bg-white inline-block px-3 py-1 brutal-shadow-sm">
+              <span className="font-mono text-sm font-bold">Network Engineer · Builder · Automator</span>
+            </div>
+            <div className="brutal-border bg-brutal-green inline-flex items-center gap-2 px-3 py-1 brutal-shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              <span className="font-mono text-sm font-bold text-white">Open to work · Singapore</span>
+            </div>
           </div>
 
           <div className="brutal-border bg-foreground brutal-shadow-lg mb-8 max-w-3xl">

@@ -1,97 +1,123 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Database, Users, RefreshCw, Code } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Mail01Icon } from '@hugeicons/core-free-icons';
+import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons';
 
 const SITE_URL = 'https://www.talz.net';
 
 export const metadata: Metadata = {
   title: 'About — Joven Talasan',
   description:
-    'Joven Talasan (cloudcap10) — network engineer building open-source tools for automation, security, and infrastructure. How this site works and how to contribute.',
+    'Joven Talasan (cloudcap10) — network engineer in Singapore with 8+ years across Cisco, Alcatel-Lucent, and Aruba. Builds automation and security tools for infrastructure teams.',
   alternates: { canonical: `${SITE_URL}/about` },
   openGraph: {
     title: 'About — Joven Talasan',
     description:
-      'Network engineer building open-source tools for automation, security, and infrastructure.',
+      'Network engineer in Singapore building open-source tools for automation, security, and infrastructure.',
     url: `${SITE_URL}/about`,
-    type: 'website',
+    type: 'profile',
   },
 };
 
+const FOCUS_AREAS = [
+  {
+    title: 'Network engineering',
+    color: 'bg-brutal-blue/15',
+    body: 'Eight-plus years running enterprise networks — Cisco IOS, Alcatel-Lucent, and Aruba. Routing, switching, and the BGP/OSPF details that keep traffic where it belongs.',
+  },
+  {
+    title: 'Automation',
+    color: 'bg-brutal-green/15',
+    body: 'Python and Netmiko turn hours of manual CLI work into scheduled jobs: config backups, inventory tracking, and compliance checks across multi-vendor fleets.',
+  },
+  {
+    title: 'Building software',
+    color: 'bg-brutal-purple/15',
+    body: 'TypeScript, Next.js, and Cloudflare Workers. Shipped apps range from zero-knowledge file sharing to a Traefik label generator — all open source on GitHub.',
+  },
+  {
+    title: 'Security',
+    color: 'bg-brutal-orange/15',
+    body: 'Client-side AES-256-GCM encryption, network hardening, and EOL/CVE tracking. Infrastructure should be visible, secure, and under control.',
+  },
+];
+
 export default function AboutPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 py-10">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 text-sm mb-8 transition-colors"
-        style={{ color: 'var(--text-muted)' }}
-      >
-        <ArrowLeft size={15} />
-        Back
-      </Link>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mb-8 flex items-center gap-4">
+        <span className="brutal-border bg-brutal-purple px-4 py-2 font-bold text-lg">About</span>
+        <span className="text-sm opacity-60">Who I am and what I do</span>
+      </div>
 
-      <h1 className="text-3xl font-bold mb-2" style={{ color: 'var(--text)' }}>
-        About
-      </h1>
-      <p className="text-base mb-10" style={{ color: 'var(--text-muted)' }}>
-        How this site works and how to contribute.
-      </p>
+      <div className="brutal-border bg-white p-8 brutal-shadow-lg mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">Joven Talasan</h1>
+        <p className="font-mono text-sm text-brutal-blue font-semibold mb-5">
+          network engineer who ships software · Singapore
+        </p>
+        <p className="text-base leading-relaxed max-w-2xl mb-4">
+          I spent 8+ years keeping enterprise networks running — and got tired of doing the
+          same CLI work by hand every week. So I learned to automate it. That habit grew
+          into building full tools: config backup systems, encrypted file sharing, network
+          calculators, and GitOps templates that other engineers use.
+        </p>
+        <p className="text-base leading-relaxed max-w-2xl">
+          Today I work where traditional networking meets modern software: infrastructure
+          you can see, scripts that do the boring parts, and security that is built in
+          rather than bolted on.
+        </p>
+      </div>
 
-      <div className="space-y-4">
-        {[
-          {
-            icon: <Database size={20} style={{ color: 'var(--accent)' }} />,
-            title: 'Data-driven',
-            body: 'All model data lives in a single YAML file (models-data.yml) at the root of the repository. Each entry contains the model name, provider, context window, pricing, capabilities, and feature flags. Editing that one file is all you need to update or add a model.',
-          },
-          {
-            icon: <RefreshCw size={20} style={{ color: 'var(--green)' }} />,
-            title: 'Regularly updated',
-            body: 'AI moves fast. We aim to update the data whenever major models are released or existing models change their pricing or capabilities. Pull requests with data updates are always welcome.',
-          },
-          {
-            icon: <Users size={20} style={{ color: 'var(--blue)' }} />,
-            title: 'Community maintained',
-            body: 'This project is open source and relies on contributions from the community. Found a mistake? Want to add a model? Open a PR or an issue on GitHub.',
-          },
-          {
-            icon: <Code size={20} style={{ color: 'var(--yellow)' }} />,
-            title: 'Tech stack',
-            body: 'Built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion. Data is loaded from YAML at build time — no database required. Fully static and fast.',
-          },
-        ].map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl p-6"
-            style={{ background: 'var(--bg-card)', border: '1px solid var(--border-subtle)' }}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              {item.icon}
-              <h2 className="font-semibold" style={{ color: 'var(--text)' }}>{item.title}</h2>
-            </div>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              {item.body}
-            </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {FOCUS_AREAS.map((area) => (
+          <div key={area.title} className={`brutal-border ${area.color} p-6 brutal-shadow`}>
+            <h2 className="font-bold text-lg mb-2">{area.title}</h2>
+            <p className="text-sm leading-relaxed">{area.body}</p>
           </div>
         ))}
       </div>
 
-      <div
-        className="mt-8 rounded-2xl p-6"
-        style={{
-          background: 'var(--accent-glow)',
-          border: '1px solid var(--accent-dim)',
-        }}
-      >
-        <h2 className="font-semibold mb-2" style={{ color: 'var(--accent)' }}>
-          How to add a model
-        </h2>
-        <ol className="text-sm space-y-1 list-decimal list-inside" style={{ color: 'var(--text-muted)' }}>
-          <li>Fork the repository on GitHub</li>
-          <li>Edit <code className="feature-tag">models-data.yml</code> — add a new entry following the schema</li>
-          <li>Add the provider icon to <code className="feature-tag">public/icons/</code> (SVG, 24×24)</li>
-          <li>Open a pull request with your changes</li>
-        </ol>
+      <div className="brutal-border bg-main p-8 brutal-shadow-lg">
+        <h2 className="font-bold text-xl mb-2">Working with me</h2>
+        <p className="text-sm leading-relaxed max-w-2xl mb-6">
+          I&apos;m open to network automation, NetDevOps, and infrastructure tooling work —
+          full-time roles or project engagements. The fastest way to reach me is email;
+          my code is all public on GitHub if you want to see how I work first.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <a
+            href="mailto:cloning@talz.net"
+            className="brutal-border bg-foreground text-white px-5 py-2.5 font-bold brutal-shadow brutal-hover inline-flex items-center gap-2"
+          >
+            <HugeiconsIcon icon={Mail01Icon} size={16} />
+            Email me
+          </a>
+          <a
+            href="https://www.linkedin.com/in/joven-talasan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutal-border bg-white px-5 py-2.5 font-bold brutal-shadow brutal-hover inline-flex items-center gap-2"
+          >
+            <LinkedInIcon size={16} />
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/cloudcap10"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="brutal-border bg-white px-5 py-2.5 font-bold brutal-shadow brutal-hover inline-flex items-center gap-2"
+          >
+            <GitHubIcon size={16} />
+            GitHub
+          </a>
+          <Link
+            href="/#projects"
+            className="brutal-border bg-white px-5 py-2.5 font-bold brutal-shadow brutal-hover inline-block"
+          >
+            See projects →
+          </Link>
+        </div>
       </div>
     </div>
   );

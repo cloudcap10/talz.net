@@ -29,10 +29,19 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: 'Joven Talasan',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Joven Talasan — network engineer who ships software',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     creator: '@cloudcapten',
+    images: ['/og.png'],
   },
   robots: {
     index: true,
